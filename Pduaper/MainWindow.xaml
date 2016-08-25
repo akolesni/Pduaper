@@ -40,8 +40,25 @@
         </telerik:RadRibbonGroup>
       </telerik:RadRibbonTab>
       -->
-      <telerik:RadRibbonTab Header="Log" />
-    </telerik:RadRibbonView>
+            <telerik:RadRibbonTab Header="Log" >
+                <telerik:RadRibbonGroup Header="D PDU Api">
+                    <telerik:RadRibbonButton Command="{Binding OpenLogCommand}">Open</telerik:RadRibbonButton>
+                </telerik:RadRibbonGroup>
+                <telerik:RadRibbonGroup Header="XML Tester">
+
+                </telerik:RadRibbonGroup>
+            </telerik:RadRibbonTab>
+            <telerik:RadRibbonTab Header="D PDU API" >
+                <telerik:RadRibbonGroup Header="D PDU Api">
+                    <telerik:RadRibbonButton>Open</telerik:RadRibbonButton>
+                </telerik:RadRibbonGroup>
+                <telerik:RadRibbonGroup Header="XML Tester">
+
+                </telerik:RadRibbonGroup>
+            </telerik:RadRibbonTab>
+
+
+        </telerik:RadRibbonView>
 
     <telerik:RadGridView Grid.Row="1"
                      ItemsSource="{Binding Logs}" 

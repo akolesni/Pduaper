@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Pduaper.ViewModel
 {
-  using System.Collections.ObjectModel;
-  using System.IO;
-  using System.Text.RegularExpressions;
+    using Command;
+    using System.Collections.ObjectModel;
+    using System.IO;
+    using System.Text.RegularExpressions;
 
-  using Telerik.Windows.Controls;
+    using Telerik.Windows.Controls;
 
     public class Log
     {
@@ -36,8 +37,13 @@ namespace Pduaper.ViewModel
     {
         public ObservableCollection<Log> Logs { get; set; }
         public ObservableCollection<ThreadProp> Threads { get; set; }
-        public MainWindowViewModel()
+
+        public OpenLogCommand OpenLogCommand { get; set; }
+
+    public MainWindowViewModel()
         {
+            this.OpenLogCommand = new OpenLogCommand();
+
             int nr = 1;
             Logs = new ObservableCollection<Log>();
             this.Threads = new ObservableCollection<ThreadProp>();
