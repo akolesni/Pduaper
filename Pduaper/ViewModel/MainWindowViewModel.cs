@@ -40,9 +40,18 @@ namespace Pduaper.ViewModel
 
         public OpenLogCommand OpenLogCommand { get; set; }
 
+    public SelectionChangedCommand SelectionChangedCommand { get; set; }
+
+  public LogsViewModel LogsViewModel { get; set; }
+
+
     public MainWindowViewModel()
         {
             this.OpenLogCommand = new OpenLogCommand();
+
+      this.SelectionChangedCommand = new SelectionChangedCommand();
+
+      LogsViewModel = new LogsViewModel();
 
             int nr = 1;
             Logs = new ObservableCollection<Log>();
