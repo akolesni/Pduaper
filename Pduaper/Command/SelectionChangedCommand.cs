@@ -9,6 +9,8 @@ namespace Pduaper.Command
   using System.Windows;
   using System.Windows.Input;
 
+  using Pduaper.Resources;
+
   class SelectionChangedCommand : ICommand
   {
     public bool CanExecute(object parameter)
@@ -19,6 +21,11 @@ namespace Pduaper.Command
     public void Execute(object parameter)
     {
       MessageBox.Show(parameter.ToString());
+
+      TemplateSelector templateSelector = parameter as TemplateSelector;
+
+      //templateSelector.SelectTemplate()
+
       //throw new NotImplementedException();
     }
 

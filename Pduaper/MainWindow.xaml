@@ -6,12 +6,25 @@
     xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
     xmlns:viewModel="clr-namespace:Pduaper.ViewModel"
     xmlns:pduaper="clr-namespace:Pduaper"
+    xmlns:resources="clr-namespace:Pduaper.Resources"
     Title="MainWindow"
     Height="350"
     Width="525">
   <telerik:RadRibbonWindow.DataContext>
         <viewModel:MainWindowViewModel />
   </telerik:RadRibbonWindow.DataContext>
+
+  <telerik:RadRibbonWindow.Resources>
+  <DataTemplate x:Key="ButtonTemplate">
+      <pduaper:LogView DataContext="{Binding LogsViewModel}"/>
+    </DataTemplate>
+
+  <DataTemplate x:Key="TextBlockTemplate">
+    <pduaper:RmcDfView/>
+  </DataTemplate>
+    <resources:TemplateSelector x:Key="templateSelector" />
+  </telerik:RadRibbonWindow.Resources>
+
   <Grid>
     <Grid.RowDefinitions >
         <RowDefinition Height="Auto"/>
@@ -29,7 +42,7 @@
         <telerik:EventBinding 
           Command="{Binding SelectionChangedCommand}" 
           EventName="SelectionChanged"
-          CommandParameter="{Binding ElementName=RadRibbonView , Path=SelectedItem}"/>
+          CommandParameter="{Binding ElementName=presenter}"/>
       </telerik:EventToCommandBehavior.EventBindings>
 
 
@@ -76,7 +89,10 @@
 
 
         </telerik:RadRibbonView>
-    <pduaper:LogView Grid.Row="1" DataContext="{Binding LogsViewModel}"/>
+
+    <ContentPresenter x:Name="presenter" Grid.Row="1" ContentTemplateSelector="{StaticResource templateSelector}"/>
+
+    <!--<pduaper:LogView Grid.Row="1" DataContext="{Binding LogsViewModel}"/>-->
     <!--<telerik:RadGridView Grid.Row="1"
                      ItemsSource="{Binding Logs}" 
                      AutoGenerateColumns="False">
