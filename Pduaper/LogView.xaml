@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="Pduaper.LogView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Pduaper"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+
+    <telerik:RadGridView ItemsSource="{Binding Logs}" 
+                      
+                     AutoGenerateColumns="False">
+      <telerik:RadGridView.Columns>
+        <telerik:GridViewDataColumn DataMemberBinding="{Binding Nr}" Header="Nr"/>
+        <telerik:GridViewDataColumn DataMemberBinding="{Binding Datum}" Header="Datum"/>
+        <telerik:GridViewDataColumn DataMemberBinding="{Binding Level}" Header="Level"/>
+        <telerik:GridViewDataColumn DataMemberBinding="{Binding Thread}" Header="Thread"/>
+        <telerik:GridViewDataColumn DataMemberBinding="{Binding Message}" Header="Message"/>
+      </telerik:RadGridView.Columns>
+    </telerik:RadGridView>
+
+  </Grid>
+</UserControl>
