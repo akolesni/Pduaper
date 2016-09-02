@@ -1,9 +1,10 @@
-﻿using System;
+﻿
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace RMC_DFUTest
 {
   using RMC_DF;
+  using RMC_DF.Entities;
 
   [TestClass]
   public class UTestRdf
@@ -11,8 +12,12 @@ namespace RMC_DFUTest
     [TestMethod]
     public void TestRegistry()
     {
-      Rdf rdf = new Rdf();
-      string s = rdf.GetPduPath();
+      DfFacade dfFacade = new DfFacade();
+      Rdf rdf = dfFacade.GetRdf();
+
+
+      //Rdf Rdf = new Rdf();
+      //string s = rdf.GetRdfPath();
     }
   }
 }

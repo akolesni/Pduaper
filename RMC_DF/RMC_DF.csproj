@@ -41,9 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DfFacade.cs" />
+    <Compile Include="Entities\MVCI_PDU_API.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rdf.cs" />
+    <Compile Include="Entities\Rdf.cs" />
+    <Compile Include="RdfManager.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
