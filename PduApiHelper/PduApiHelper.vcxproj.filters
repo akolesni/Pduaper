@@ -27,9 +27,6 @@
     <ClInclude Include="include\PDULibraryManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\PduTestBase.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\StringHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -42,9 +39,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\PDULibraryManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\PduTestBase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\StringHelper.cpp">

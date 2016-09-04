@@ -11,6 +11,8 @@ namespace Pduaper.ViewModel
     using System.IO;
     using System.Text.RegularExpressions;
 
+    using Pduaper.Converter;
+
     using Telerik.Windows.Controls;
 
     public class Log
@@ -33,7 +35,7 @@ namespace Pduaper.ViewModel
 
     }
 
-    class MainWindowViewModel
+    public class MainWindowViewModel
     {
         public ObservableCollection<Log> Logs { get; set; }
         public ObservableCollection<ThreadProp> Threads { get; set; }
@@ -42,14 +44,20 @@ namespace Pduaper.ViewModel
 
     public SelectionChangedCommand SelectionChangedCommand { get; set; }
 
-  public LogsViewModel LogsViewModel { get; set; }
+
+     public ViewModelBase SelectedViewModel { get; set; }
+
+        public LogsViewModel LogsViewModel { get; set; }
 
 
-    public MainWindowViewModel()
+        //public SelectCommandConverter SelectCommandConverter { get; set; }
+
+
+        public MainWindowViewModel()
         {
-            this.OpenLogCommand = new OpenLogCommand();
-
-      this.SelectionChangedCommand = new SelectionChangedCommand();
+            OpenLogCommand = new OpenLogCommand();
+            //SelectCommandConverter = new SelectCommandConverter();
+      this.SelectionChangedCommand = new SelectionChangedCommand(this);
 
       LogsViewModel = new LogsViewModel();
 

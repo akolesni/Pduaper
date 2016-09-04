@@ -57,10 +57,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="TestConstructDestruct.cs" />
+    <Compile Include="UTestConstructDestruct.cs" />
     <Compile Include="UTestDll.cs" />
     <Compile Include="UTestEnvironment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UTestGetModuleIds.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

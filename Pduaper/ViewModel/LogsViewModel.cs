@@ -8,8 +8,10 @@ namespace Pduaper.ViewModel
 {
   using System.Collections.ObjectModel;
 
-  public class LogsViewModel
-  {
+  using Telerik.Windows.Controls;
+
+    public class LogsViewModel : ViewModelBase
+    {
 
     public ObservableCollection<Log> Logs { get; set; }
 

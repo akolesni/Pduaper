@@ -17,16 +17,16 @@ DPduApi::~DPduApi()
 }
 
 
-T_PDU_ERROR DPduApi::LoadDll(const char* _strDllPath)
+native_api::T_PDU_ERROR DPduApi::LoadDll(const char* _strDllPath)
 {
-  T_PDU_ERROR result = T_PDU_ERROR::PDU_ERR_FCT_FAILED;
+  native_api::T_PDU_ERROR result = native_api::T_PDU_ERROR::PDU_ERR_FCT_FAILED;
   try
   {
     if (m_pLibraryManager != nullptr)
     {
       m_pLibraryManager->LoadPDULibrary(_strDllPath);
       this->InitFunctors(m_pLibraryManager);
-      result = T_PDU_ERROR::PDU_STATUS_NOERROR;
+      result = native_api::T_PDU_ERROR::PDU_STATUS_NOERROR;
     }
   }
   catch (...)
@@ -40,15 +40,15 @@ T_PDU_ERROR DPduApi::LoadDll(const char* _strDllPath)
 }
 
 
-T_PDU_ERROR DPduApi::UnloadDll()
+native_api::T_PDU_ERROR DPduApi::UnloadDll()
 {
-  T_PDU_ERROR result = T_PDU_ERROR::PDU_ERR_FCT_FAILED;
+  native_api::T_PDU_ERROR result = native_api::T_PDU_ERROR::PDU_ERR_FCT_FAILED;
   try
   {
     if (m_pLibraryManager != nullptr)
     {
       m_pLibraryManager->FreeLibrary();
-      result = T_PDU_ERROR::PDU_STATUS_NOERROR;
+      result = native_api::T_PDU_ERROR::PDU_STATUS_NOERROR;
     }
   }
   catch (...)
@@ -58,15 +58,21 @@ T_PDU_ERROR DPduApi::UnloadDll()
   return result;
 }
 
-T_PDU_ERROR DPduApi::PDUConstruct(CHAR8* pszOption, void* pAPITag)
+native_api::T_PDU_ERROR DPduApi::PDUConstruct(CHAR8* pszOption, void* pAPITag)
 {
   return (*s_fPDUConstruct)(pszOption, pAPITag);
 }
 
-T_PDU_ERROR DPduApi::PDUDestruct()
+native_api::T_PDU_ERROR DPduApi::PDUDestruct()
 {
   return (*s_fPDUDestruct)();
 }
+
+native_api::T_PDU_ERROR DPduApi::PDUGetModuleIds(native_api::PDU_MODULE_ITEM** pModuleIdList)
+{
+	return (*s_fPDUGetModuleIds)(pModuleIdList);
+}
+
 
 int DPduApi::Do()
 {

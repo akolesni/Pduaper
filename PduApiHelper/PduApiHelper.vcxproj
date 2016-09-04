@@ -137,7 +137,6 @@
   <ItemGroup>
     <ClInclude Include="include\DPduApi.h" />
     <ClInclude Include="include\PDULibraryManager.h" />
-    <ClInclude Include="include\PduTestBase.h" />
     <ClInclude Include="include\StringHelper.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -145,7 +144,6 @@
   <ItemGroup>
     <ClCompile Include="src\DPduApi.cpp" />
     <ClCompile Include="src\PDULibraryManager.cpp" />
-    <ClCompile Include="src\PduTestBase.cpp" />
     <ClCompile Include="src\StringHelper.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

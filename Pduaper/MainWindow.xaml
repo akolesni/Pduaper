@@ -7,6 +7,7 @@
     xmlns:viewModel="clr-namespace:Pduaper.ViewModel"
     xmlns:pduaper="clr-namespace:Pduaper"
     xmlns:resources="clr-namespace:Pduaper.Resources"
+    xmlns:converter="clr-namespace:Pduaper.Converter"
     Title="MainWindow"
     Height="350"
     Width="525">
@@ -22,16 +23,24 @@
   <DataTemplate x:Key="TextBlockTemplate">
     <pduaper:RmcDfView/>
   </DataTemplate>
-    <resources:TemplateSelector x:Key="templateSelector" />
+    <resources:TemplateSelector x:Key="templateSelector"
+                                
+                                              
+              BooleanDataTemplate="{StaticResource ButtonTemplate}" 
+              EnumDataTemplate="{StaticResource TextBlockTemplate}"
+                                />
+
+        <converter:SelectCommandConverter x:Key="EmptyTextValidation"/>
+      
   </telerik:RadRibbonWindow.Resources>
 
-  <Grid>
+  <Grid Background="#FFC76B6B">
     <Grid.RowDefinitions >
         <RowDefinition Height="Auto"/>
         <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
     <telerik:RadRibbonView x:Name="RadRibbonView" Grid.Row="0" Title="RibbonView Title" 
-                        ApplicationName="My Application" >
+                   ApplicationName="My Application" >
       <!--<i:Interaction.Triggers>
         <EventTrigger EventName="SelectionChanged" >
           <i:InvokeCommandAction Command="{Binding SelectionChangedCommand}" />
@@ -41,8 +50,15 @@
       <telerik:EventToCommandBehavior.EventBindings>
         <telerik:EventBinding 
           Command="{Binding SelectionChangedCommand}" 
-          EventName="SelectionChanged"
-          CommandParameter="{Binding ElementName=presenter}"/>
+          EventName="SelectionChanged">
+                    <telerik:EventBinding.CommandParameter>
+                        <MultiBinding Converter="{StaticResource EmptyTextValidation}">
+                            <Binding ElementName="RadRibbonView" Path="SelectedItem"/>
+                            <Binding ElementName="presenter" Path="ContentTemplateSelector"/>
+                            <Binding Source="presenter"/>
+                        </MultiBinding>
+                    </telerik:EventBinding.CommandParameter>    
+            </telerik:EventBinding>
       </telerik:EventToCommandBehavior.EventBindings>
 
 
@@ -90,7 +106,7 @@
 
         </telerik:RadRibbonView>
 
-    <ContentPresenter x:Name="presenter" Grid.Row="1" ContentTemplateSelector="{StaticResource templateSelector}"/>
+        <ContentPresenter x:Name="presenter" Grid.Row="1" ContentTemplateSelector="{StaticResource templateSelector}" />
 
     <!--<pduaper:LogView Grid.Row="1" DataContext="{Binding LogsViewModel}"/>-->
     <!--<telerik:RadGridView Grid.Row="1"

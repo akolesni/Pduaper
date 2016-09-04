@@ -8,12 +8,12 @@ public:
   DPduApi();
   ~DPduApi();
 
-  T_PDU_ERROR LoadDll(const char* _strDllPath);
-  T_PDU_ERROR UnloadDll();
+  native_api::T_PDU_ERROR LoadDll(const char* _strDllPath);
+  native_api::T_PDU_ERROR UnloadDll();
 
   // PDU API
-   T_PDU_ERROR PDUConstruct(CHAR8* pszOption, void* pAPITag);
-   T_PDU_ERROR PDUDestruct();
+  native_api::T_PDU_ERROR PDUConstruct(CHAR8* pszOption, void* pAPITag);
+  native_api::T_PDU_ERROR PDUDestruct();
 
    //T_PDU_ERROR PDUIoCtl(UNUM32 hMod, UNUM32 hCLL, UNUM32 IoCtlCommandId,
    // PDU_DATA_ITEM *pInputData, PDU_DATA_ITEM **pOutputData);
@@ -45,7 +45,7 @@ public:
    // CALLBACKFNC EventCallbackFunction);
    //T_PDU_ERROR PDUGetObjectId(T_PDU_OBJT pduObjectType, CHAR8* pShortname,
    // UNUM32 *pPduObjectId);
-   //T_PDU_ERROR PDUGetModuleIds(PDU_MODULE_ITEM **pModuleIdList);
+  native_api::T_PDU_ERROR PDUGetModuleIds(native_api::PDU_MODULE_ITEM **pModuleIdList);
    //T_PDU_ERROR PDUGetResourceIds(UNUM32 hMod, PDU_RSC_DATA *pResourceIdData,
    // PDU_RSC_ID_ITEM **pResourceIdList);
    //T_PDU_ERROR PDUGetConflictingResources(UNUM32 resourceId,

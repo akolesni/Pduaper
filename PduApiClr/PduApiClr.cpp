@@ -4,6 +4,8 @@
 #include "DPduApi.h"
 #include "PduApiClr.h"
 
+//using namespace System::Runtime::InteropServices;
+
 PduApiClr::PduApi::PduApi()
 {
   this->m_pPduApi = new DPduApi();
@@ -54,13 +56,42 @@ PduApiClr::E_PDU_ERROR PduApiClr::PduApi::UnloadDll()
 
 PduApiClr::E_PDU_ERROR PduApiClr::PduApi::PDUConstruct(String ^ pszOption, String ^ pAPITag)
 {
-  PduApiClr::E_PDU_ERROR result = PduApiClr::E_PDU_ERROR::PDU_ERR_FCT_FAILED;
-  return result;
+	PduApiClr::E_PDU_ERROR result = PduApiClr::E_PDU_ERROR::PDU_ERR_FCT_FAILED;
+
+	char* strOption = (char*)(Runtime::InteropServices::Marshal::StringToHGlobalAnsi(pszOption)).ToPointer();
+	char* strAPITag = (char*)(Runtime::InteropServices::Marshal::StringToHGlobalAnsi(pAPITag)).ToPointer();
+
+	result = PduApiClr::E_PDU_ERROR(this->m_pPduApi->PDUConstruct(strOption, strAPITag));
+
+	Runtime::InteropServices::Marshal::FreeHGlobal(IntPtr((void*)strOption));
+	Runtime::InteropServices::Marshal::FreeHGlobal(IntPtr((void*)strAPITag));
+
+	return result;
 }
 
 PduApiClr::E_PDU_ERROR PduApiClr::PduApi::PDUDestruct()
 {
   PduApiClr::E_PDU_ERROR result = PduApiClr::E_PDU_ERROR::PDU_ERR_FCT_FAILED;
+
+	if (this->m_pPduApi != nullptr)
+	{
+		result = PduApiClr::E_PDU_ERROR(this->m_pPduApi->PDUDestruct());
+	}
+
+	return result;
+}
+
+PduApiClr::E_PDU_ERROR PduApiClr::PduApi::PDUGetModuleIds([Out] PduApiClr::PDU_MODULE_ITEM^ %pModuleIdList)
+{
+  PduApiClr::E_PDU_ERROR result = PduApiClr::E_PDU_ERROR::PDU_ERR_FCT_FAILED;
+  
+  if (this->m_pPduApi != nullptr)
+  {
+    native_api::PDU_MODULE_ITEM* item = nullptr;
+    result = PduApiClr::E_PDU_ERROR(this->m_pPduApi->PDUGetModuleIds(&item));
+    pModuleIdList = gcnew PduApiClr::PDU_MODULE_ITEM(item);
+  }
+
   return result;
 }
 

@@ -3,7 +3,7 @@ using System.Windows.Input;
 
 namespace Pduaper.Command
 {
-    class OpenLogCommand : ICommand
+    public class OpenLogCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
 

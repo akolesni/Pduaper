@@ -96,6 +96,7 @@
     <Compile Include="Club.cs" />
     <Compile Include="Command\OpenLogCommand.cs" />
     <Compile Include="Command\SelectionChangedCommand.cs" />
+    <Compile Include="Converter\SelectCommandConverter.cs" />
     <Compile Include="LogView.xaml.cs">
       <DependentUpon>LogView.xaml</DependentUpon>
     </Compile>

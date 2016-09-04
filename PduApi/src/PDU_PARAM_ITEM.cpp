@@ -5,7 +5,7 @@
 /**
  *@brief - Constructor
  */
-PDU_PARAM_ITEM::PDU_PARAM_ITEM()
+native_api::PDU_PARAM_ITEM::PDU_PARAM_ITEM()
 {
   this->ItemType         = PDU_IT_PARAM;
   this->ComParamId       = PDU_ID_UNDEF;
@@ -14,7 +14,7 @@ PDU_PARAM_ITEM::PDU_PARAM_ITEM()
   this->pComParamData    = nullptr;
 }
 
-PDU_PARAM_ITEM::PDU_PARAM_ITEM(UNUM32 _paramId, T_PDU_PC _paramClass, UNUM32 _value)
+native_api::PDU_PARAM_ITEM::PDU_PARAM_ITEM(UNUM32 _paramId, T_PDU_PC _paramClass, UNUM32 _value)
 {
   this->ItemType         = PDU_IT_PARAM;
   this->ComParamId       = _paramId;
@@ -26,7 +26,7 @@ PDU_PARAM_ITEM::PDU_PARAM_ITEM(UNUM32 _paramId, T_PDU_PC _paramClass, UNUM32 _va
 /**
  *@brief - Copy constructor
  */
-PDU_PARAM_ITEM::PDU_PARAM_ITEM(const PDU_PARAM_ITEM& _paramItem)
+native_api::PDU_PARAM_ITEM::PDU_PARAM_ITEM(const PDU_PARAM_ITEM& _paramItem)
 {
     //throw std::string("Copy constructor not implemented");
   this->ComParamClass    = _paramItem.ComParamClass;
@@ -166,7 +166,7 @@ PDU_PARAM_ITEM::PDU_PARAM_ITEM(const PDU_PARAM_ITEM& _paramItem)
 /**
  *@brief - Destructor
  */
-PDU_PARAM_ITEM::~PDU_PARAM_ITEM()
+native_api::PDU_PARAM_ITEM::~PDU_PARAM_ITEM()
 {
   this->DeleteComParamData();
 }
@@ -174,7 +174,7 @@ PDU_PARAM_ITEM::~PDU_PARAM_ITEM()
 /**
  *@brief - Assignment operator
  */
-PDU_PARAM_ITEM& PDU_PARAM_ITEM::operator=(const PDU_PARAM_ITEM& _paramItem)
+native_api::PDU_PARAM_ITEM& native_api::PDU_PARAM_ITEM::operator=(const PDU_PARAM_ITEM& _paramItem)
 {
   this->ComParamClass    = _paramItem.ComParamClass;
   this->ComParamDataType = _paramItem.ComParamDataType;
@@ -310,7 +310,7 @@ PDU_PARAM_ITEM& PDU_PARAM_ITEM::operator=(const PDU_PARAM_ITEM& _paramItem)
   return *this;
 }
 
-void PDU_PARAM_ITEM::DeleteComParamData()
+void native_api::PDU_PARAM_ITEM::DeleteComParamData()
 {
   switch (this->ComParamDataType)
   {

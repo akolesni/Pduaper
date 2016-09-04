@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Pduaper"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
+    <Grid Background="#FFE220EC">
     <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="53,22,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
 
   </Grid>

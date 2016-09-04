@@ -5,7 +5,7 @@
 /**
  *@brief - Constructor
  */
-PDU_FLAG_DATA::PDU_FLAG_DATA(bool _bRawMode, bool _bChecksumMode)
+native_api::PDU_FLAG_DATA::PDU_FLAG_DATA(bool _bRawMode, bool _bChecksumMode)
 {
 	this->NumFlagBytes = 4;
 	this->pFlagData = new UNUM8 [4];
@@ -31,7 +31,7 @@ PDU_FLAG_DATA::PDU_FLAG_DATA(bool _bRawMode, bool _bChecksumMode)
 /**
  *@brief - Destructor
  */
-PDU_FLAG_DATA::~PDU_FLAG_DATA()
+native_api::PDU_FLAG_DATA::~PDU_FLAG_DATA()
 {
   if (this->pFlagData != nullptr)
 	{

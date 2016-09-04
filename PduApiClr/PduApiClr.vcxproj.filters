@@ -16,6 +16,12 @@
     <Filter Include="Header Files\Defines">
       <UniqueIdentifier>{990e8317-b876-4a12-952f-e2820c202a39}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\PduApiClr">
+      <UniqueIdentifier>{dfe6af70-8c15-4e46-b8b5-276b2b9773b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\PduApiClr">
+      <UniqueIdentifier>{812b7da0-29d8-43d3-a0af-f8be59637cd4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PduApiClr.h">
@@ -30,6 +36,12 @@
     <ClInclude Include="E_PDU_ERROR.h">
       <Filter>Header Files\Defines</Filter>
     </ClInclude>
+    <ClInclude Include="T_PDU_IT.h">
+      <Filter>Header Files\Defines</Filter>
+    </ClInclude>
+    <ClInclude Include="PduApiClr\PDU_MODULE_ITEM.h">
+      <Filter>Header Files\PduApiClr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PduApiClr.cpp">
@@ -40,6 +52,9 @@
     </ClCompile>
     <ClCompile Include="Stdafx.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PduApiClr\PDU_MODULE_ITEM.cpp">
+      <Filter>Source Files\PduApiClr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

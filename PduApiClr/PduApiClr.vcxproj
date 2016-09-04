@@ -90,7 +90,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <AdditionalIncludeDirectories>$(SolutionDir)PduApiHelper\include;$(SolutionDir)PduApi\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)PduApiHelper\include;$(SolutionDir)PduApi\include;$(ProjectDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -140,12 +140,15 @@
   <ItemGroup>
     <ClInclude Include="E_PDU_ERROR.h" />
     <ClInclude Include="PduApiClr.h" />
+    <ClInclude Include="PduApiClr\PDU_MODULE_ITEM.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Stdafx.h" />
+    <ClInclude Include="T_PDU_IT.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="PduApiClr.cpp" />
+    <ClCompile Include="PduApiClr\PDU_MODULE_ITEM.cpp" />
     <ClCompile Include="Stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
