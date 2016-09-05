@@ -126,7 +126,7 @@ namespace native_api {
   /// D.1.4 Status code values
   ///////////////////////////////////////////////////////////////////////////////
 
-  typedef enum E_PDU_STATUS
+  enum T_PDU_STATUS
   {
     //  ComPrimitive status
     PDU_COPST_IDLE = 0x8010,
@@ -144,7 +144,7 @@ namespace native_api {
     PDU_MODST_NOT_READY = 0x8061,
     PDU_MODST_NOT_AVAIL = 0x8062,
     PDU_MODST_AVAIL = 0x8063
-  } T_PDU_STATUS;
+  };
 
 
 

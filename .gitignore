@@ -9,3 +9,7 @@
 /RMC_DF/obj
 /RMC_DFUTest/bin
 /RMC_DFUTest/obj
+/ipch
+/Debug
+/PduApi/Debug
+/PduApiHelper/Debug

@@ -1,8 +1,6 @@
 ﻿
 namespace PduApiClrUTest
 {
-  using ClrApi;
-
   using Microsoft.VisualStudio.TestTools.UnitTesting;
 
   using PduApiClr;

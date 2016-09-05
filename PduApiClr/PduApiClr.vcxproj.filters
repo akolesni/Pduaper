@@ -42,6 +42,12 @@
     <ClInclude Include="PduApiClr\PDU_MODULE_ITEM.h">
       <Filter>Header Files\PduApiClr</Filter>
     </ClInclude>
+    <ClInclude Include="PduApiClr\PDU_MODULE_DATA.h">
+      <Filter>Header Files\PduApiClr</Filter>
+    </ClInclude>
+    <ClInclude Include="PduApiClr\E_PDU_STATUS.h">
+      <Filter>Header Files\Defines</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PduApiClr.cpp">
@@ -54,6 +60,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PduApiClr\PDU_MODULE_ITEM.cpp">
+      <Filter>Source Files\PduApiClr</Filter>
+    </ClCompile>
+    <ClCompile Include="PduApiClr\PDU_MODULE_DATA.cpp">
       <Filter>Source Files\PduApiClr</Filter>
     </ClCompile>
   </ItemGroup>
