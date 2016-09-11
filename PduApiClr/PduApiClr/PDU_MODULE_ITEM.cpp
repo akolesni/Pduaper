@@ -17,3 +17,8 @@ PduApiClr::PDU_MODULE_ITEM::PDU_MODULE_ITEM(native_api::PDU_MODULE_ITEM* item)
   }
 }
 
+System::UInt64 PduApiClr::PDU_MODULE_ITEM::GetNativePointer()
+{
+  return m_Pointer;
+}
+

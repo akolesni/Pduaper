@@ -40,7 +40,7 @@ public:
    //T_PDU_ERROR PDUCancelComPrimitive(UNUM32 hMod, UNUM32 hCLL, UNUM32 hCoP);
    //T_PDU_ERROR PDUGetEventItem(UNUM32 hMod, UNUM32 hCLL,
    // PDU_EVENT_ITEM **pEventItem);
-   //T_PDU_ERROR PDUDestroyItem(PDU_ITEM *pItem);
+  native_api::T_PDU_ERROR PDUDestroyItem(native_api::PDU_ITEM *pItem);
    //T_PDU_ERROR PDURegisterEventCallback(UNUM32 hMod, UNUM32 hCLL,
    // CALLBACKFNC EventCallbackFunction);
    //T_PDU_ERROR PDUGetObjectId(T_PDU_OBJT pduObjectType, CHAR8* pShortname,

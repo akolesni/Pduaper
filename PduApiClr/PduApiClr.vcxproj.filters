@@ -48,6 +48,9 @@
     <ClInclude Include="PduApiClr\E_PDU_STATUS.h">
       <Filter>Header Files\Defines</Filter>
     </ClInclude>
+    <ClInclude Include="PduApiClr\PDU_ITEM.h">
+      <Filter>Header Files\PduApiClr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PduApiClr.cpp">

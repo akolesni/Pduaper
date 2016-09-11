@@ -54,6 +54,11 @@ namespace PduApiClrUTest
       pduError = this.pduApi.PDUGetModuleIds(out module);
       Assert.AreEqual(pduError, E_PDU_ERROR.PDU_STATUS_NOERROR,"PDUGetModuleIds");
 
+      Assert.AreEqual(module.Count,1, "1 modile");
+
+      var v = module[1];
+
+
       pduError = this.pduApi.PDUDestruct();
       Assert.AreEqual(pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUDestruct");
       //

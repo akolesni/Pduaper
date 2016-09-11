@@ -22,6 +22,7 @@ namespace PduApiClr
       E_PDU_ERROR PDUConstruct(String^ pszOption, String^ pAPITag);
       E_PDU_ERROR PDUDestruct();
       E_PDU_ERROR PDUGetModuleIds([Out] PDU_MODULE_ITEM^ %pModuleIdList);
+      E_PDU_ERROR PduApi::PDUDestroyItem(PDU_ITEM^ pModuleIdList);
 
     private:
       DPduApi* m_pPduApi = nullptr;

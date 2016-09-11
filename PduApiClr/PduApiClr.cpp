@@ -95,3 +95,23 @@ PduApiClr::E_PDU_ERROR PduApiClr::PduApi::PDUGetModuleIds([Out] PduApiClr::PDU_M
   return result;
 }
 
+PduApiClr::E_PDU_ERROR PduApiClr::PduApi::PDUDestroyItem(PduApiClr::PDU_ITEM^ pModuleIdList)
+{
+  PduApiClr::E_PDU_ERROR result = PduApiClr::E_PDU_ERROR::PDU_ERR_FCT_FAILED;
+
+  if (this->m_pPduApi != nullptr)
+  {
+    native_api::PDU_ITEM* item = nullptr;
+    System::UInt64 p =  pModuleIdList->GetNativePointer();
+
+    item = reinterpret_cast <native_api::PDU_ITEM*> (pModuleIdList->GetNativePointer());
+
+    result = PduApiClr::E_PDU_ERROR(this->m_pPduApi->PDUDestroyItem(item));
+  }
+
+  return result;
+}
+
+
+native_api::T_PDU_ERROR PDUDestroyItem(native_api::PDU_ITEM *pItem);
+
