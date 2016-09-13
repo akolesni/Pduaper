@@ -43,27 +43,29 @@ namespace PduApiClrUTest
       Assert.AreEqual(pduError, E_PDU_ERROR.PDU_STATUS_NOERROR);
     }
 
-    //public ~TestConstructDestruct
+      //public ~TestConstructDestruct
 
+      [TestMethod]
+      public void TestConstruct()
+      {
+        pduError =
+          this.pduApi.PDUConstruct(
+            @"LogFilename='.\logs\UTestConstructDestruct_TestConstruct.log' LogLevel='Debug'",
+            "tag01");
 
-    [TestMethod]
-        public void TestConstruct()
-        {
+        Assert.AreEqual(pduError, E_PDU_ERROR.PDU_STATUS_NOERROR);
+        pduError = this.pduApi.PDUDestruct();
+        Assert.AreEqual(pduError, E_PDU_ERROR.PDU_STATUS_NOERROR);
+      }
 
-
-            pduError = this.pduApi.PDUConstruct(@"LogFilename='.\logs\UTestConstructDestruct.log' LogLevel='Debug'", "tag01");
-
-            Assert.AreEqual(pduError, E_PDU_ERROR.PDU_STATUS_NOERROR);
-        }
-
-        [TestMethod]
-        public void TestDestruct()
-        {
-            string pathIme118 = Settings.Default.DllPath;
-            E_PDU_ERROR pduError = this.pduApi.PDUDestruct();
-            Assert.AreEqual(pduError, E_PDU_ERROR.PDU_STATUS_NOERROR);
-            //pduError = this.pduApi.UnloadDll();
-            //Assert.AreEqual(pduError, E_PDU_ERROR.PDU_STATUS_NOERROR);
-        }
+      [TestMethod]
+      public void TestDestruct()
+      {
+        //string pathIme118 = Settings.Default.DllPath;
+        pduError = this.pduApi.PDUDestruct();
+        Assert.AreEqual(pduError, E_PDU_ERROR.PDU_ERR_PDUAPI_NOT_CONSTRUCTED);
+        //pduError = this.pduApi.UnloadDll();
+        //Assert.AreEqual(pduError, E_PDU_ERROR.PDU_STATUS_NOERROR);
+      }
     }
 }

@@ -39,28 +39,32 @@ namespace PduApiClrUTest
     [TestCleanup]
     public void TestCleanup()
     {
-      pduError = this.pduApi.UnloadDll();
-      Assert.AreEqual(pduError, E_PDU_ERROR.PDU_STATUS_NOERROR);
+      this.pduError = this.pduApi.UnloadDll();
+      Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR);
     }
 
     [TestMethod]
     public void TestGetModules()
     {
-      pduError = this.pduApi.PDUConstruct(@"LogFilename='.\logs\TestGetModules.log' LogLevel='Debug'", "tag01");
+      this.pduError = this.pduApi.PDUConstruct(@"LogFilename='.\logs\UTestGetModuleIds_TestGetModules.log' LogLevel='Debug'", "tag01");
 
-      Assert.AreEqual(pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUConstruct");
+      Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUConstruct");
       PDU_MODULE_ITEM module;
 
-      pduError = this.pduApi.PDUGetModuleIds(out module);
-      Assert.AreEqual(pduError, E_PDU_ERROR.PDU_STATUS_NOERROR,"PDUGetModuleIds");
+      this.pduError = this.pduApi.PDUGetModuleIds(out module);
+      Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR,"PDUGetModuleIds");
 
       Assert.AreEqual(module.Count,1, "1 modile");
 
-      var v = module[1];
+      PDU_MODULE_DATA data = module[0];
+      //data.hMod
 
 
-      pduError = this.pduApi.PDUDestruct();
-      Assert.AreEqual(pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUDestruct");
+      this.pduError = this.pduApi.PDUDestroyItem(module);
+      Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUDestroyItem");
+
+      this.pduError = this.pduApi.PDUDestruct();
+      Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUDestruct");
       //
     }
   }
