@@ -73,6 +73,16 @@ native_api::T_PDU_ERROR DPduApi::PDUGetModuleIds(native_api::PDU_MODULE_ITEM** p
 	return (*s_fPDUGetModuleIds)(pModuleIdList);
 }
 
+native_api::T_PDU_ERROR DPduApi::PDUModuleConnect(UNUM32 hMod)
+{
+  return (*s_fPDUModuleConnect)(hMod);
+}
+
+native_api::T_PDU_ERROR DPduApi::PDUModuleDisconnect(UNUM32 hMod)
+{
+  return (*s_fPDUModuleDisconnect)(hMod);
+}
+
 native_api::T_PDU_ERROR DPduApi::PDUDestroyItem(native_api::PDU_ITEM* pItem)
 {
   return (*s_fPDUDestroyItem)(pItem);

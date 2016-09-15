@@ -1,13 +1,13 @@
-﻿using System;
-using RMC_DF.Entities;
-
-namespace RMC_DF
+﻿namespace RMC_DF
 {
+  using RMC_DF.Entities;
+
   public class DfFacade
   {
     public Rdf GetRdf(string v)
     {
-      throw new NotImplementedException();
+      RdfManager rdfManager = new RdfManager();
+      return rdfManager.GetRdf(v);
     }
 
     public Rdf GetRdf()

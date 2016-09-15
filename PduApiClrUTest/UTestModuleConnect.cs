@@ -10,16 +10,16 @@ namespace PduApiClrUTest
   using RMC_DF;
 
   /// <summary>
-  /// Summary description for UTestGetModuleIds
+  /// Summary description for UTestModuleConnect
   /// </summary>
   [TestClass]
-  public class UTestGetModuleIds
+  public class UTestModuleConnect
   {
     private PduApi pduApi= null;
 
     private E_PDU_ERROR pduError= 0;
 
-    public UTestGetModuleIds()
+    public UTestModuleConnect()
     {
       //
       // TODO: Add constructor logic here
@@ -45,9 +45,9 @@ namespace PduApiClrUTest
     }
 
     [TestMethod]
-    public void TestGetModules()
+    public void TestModuleConnect()
     {
-      this.pduError = this.pduApi.PDUConstruct(@"LogFilename='.\logs\UTestGetModuleIds_TestGetModules.log' LogLevel='Debug'", "tag01");
+      this.pduError = this.pduApi.PDUConstruct(@"LogFilename='.\logs\UTestModuleConnect_TestModuleConnect.log' LogLevel='Debug'", "tag01");
 
       Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUConstruct");
       PDU_MODULE_ITEM module;
@@ -58,8 +58,14 @@ namespace PduApiClrUTest
       Assert.AreEqual(module.Count,1, "1 modile");
 
       PDU_MODULE_DATA data = module[0];
-      //data.hMod
 
+      uint hMod = data.hMod;
+
+      this.pduError = this.pduApi.PDUModuleConnect(hMod);
+      Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUModuleConnect");
+
+      this.pduError = this.pduApi.PDUModuleDisconnect(hMod);
+      Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUModuleDisconnect");
 
       this.pduError = this.pduApi.PDUDestroyItem(module);
       Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUDestroyItem");

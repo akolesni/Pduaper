@@ -112,6 +112,24 @@ PduApiClr::E_PDU_ERROR PduApiClr::PduApi::PDUDestroyItem(PduApiClr::PDU_ITEM^ pM
   return result;
 }
 
+PduApiClr::E_PDU_ERROR PduApiClr::PduApi::PDUModuleConnect(System::UInt32 hMod)
+{
+  PduApiClr::E_PDU_ERROR result = PduApiClr::E_PDU_ERROR::PDU_ERR_FCT_FAILED;
 
-native_api::T_PDU_ERROR PDUDestroyItem(native_api::PDU_ITEM *pItem);
+  result = PduApiClr::E_PDU_ERROR(this->m_pPduApi->PDUModuleConnect(hMod));
+
+  return result;
+}
+
+PduApiClr::E_PDU_ERROR PduApiClr::PduApi::PDUModuleDisconnect(System::UInt32 hMod)
+{
+  PduApiClr::E_PDU_ERROR result = PduApiClr::E_PDU_ERROR::PDU_ERR_FCT_FAILED;
+
+  result = PduApiClr::E_PDU_ERROR(this->m_pPduApi->PDUModuleDisconnect(hMod));
+
+  return result;
+}
+
+
+//native_api::T_PDU_ERROR PDUDestroyItem(native_api::PDU_ITEM *pItem);
 

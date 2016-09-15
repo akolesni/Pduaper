@@ -52,21 +52,10 @@ namespace RMC_DF
         mvci.CABLE_DESCRIPTION_FILE  = api.Element("CABLE_DESCRIPTION_FILE").Attribute("URI").Value;
 
 
-        rdf.AddPduApi(mvci);
+        rdf.Add(mvci);
       }
-      //Console.WriteLine(p);
-
-
-      //foreach (var a in xdoc.Elements())
-      //{
-      //  var s = a;
-
-
-      //}
 
       return rdf;
-  
     }
-
   }
 }

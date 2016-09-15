@@ -1,18 +1,19 @@
 ﻿namespace RMC_DF.Entities
 {
   using System.Collections.Generic;
+  using System.Linq;
 
-  public class Rdf
+  public class Rdf : List<MVCI_PDU_API>
   {
-    public List<MVCI_PDU_API> MVCI_PDU_APIS { get; private set; }
-    public Rdf()
+    public MVCI_PDU_API GetVci(string shortName)
     {
-      MVCI_PDU_APIS = new List<MVCI_PDU_API>();
+      return this.Single(l => l.SHORT_NAME == shortName);
     }
 
-    internal void AddPduApi(MVCI_PDU_API pduApi)
+    public string GetLibraryPath(string shortName)
     {
-      MVCI_PDU_APIS.Add(pduApi);
+      const int StartIndex = 7; // wo file://
+      return this.GetVci(shortName).LIBRARY_FILE.Substring(StartIndex);
     }
 
   }

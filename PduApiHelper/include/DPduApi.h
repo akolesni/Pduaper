@@ -14,7 +14,6 @@ public:
   // PDU API
   native_api::T_PDU_ERROR PDUConstruct(CHAR8* pszOption, void* pAPITag);
   native_api::T_PDU_ERROR PDUDestruct();
-
    //T_PDU_ERROR PDUIoCtl(UNUM32 hMod, UNUM32 hCLL, UNUM32 IoCtlCommandId,
    // PDU_DATA_ITEM *pInputData, PDU_DATA_ITEM **pOutputData);
    //T_PDU_ERROR PDUGetVersion(UNUM32 hMod, PDU_VERSION_DATA *pVersionData);
@@ -54,8 +53,8 @@ public:
    // PDU_UNIQUE_RESP_ID_TABLE_ITEM **pUniqueRespIdTable);
    //T_PDU_ERROR PDUSetUniqueRespIdTable(UNUM32 hMod, UNUM32 hCLL,
    // PDU_UNIQUE_RESP_ID_TABLE_ITEM *pUniqueRespIdTable);
-   //T_PDU_ERROR PDUModuleConnect(UNUM32 hMod);
-   //T_PDU_ERROR PDUModuleDisconnect(UNUM32 hMod);
+    native_api::T_PDU_ERROR PDUModuleConnect(UNUM32 hMod);
+    native_api::T_PDU_ERROR PDUModuleDisconnect(UNUM32 hMod);
    //T_PDU_ERROR PDUGetTimestamp(UNUM32 hMod, UNUM32 *pTimestamp);
 
   int Do();

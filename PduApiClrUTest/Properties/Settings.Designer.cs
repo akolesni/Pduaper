@@ -34,5 +34,17 @@ namespace PduApiClrUTest.Properties {
                 this["DllPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("XS_D_PDU_API_1_18_1_0")]
+        public string ShortName {
+            get {
+                return ((string)(this["ShortName"]));
+            }
+            set {
+                this["ShortName"] = value;
+            }
+        }
     }
 }

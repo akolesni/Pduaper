@@ -61,6 +61,7 @@
     <Compile Include="UTestDll.cs" />
     <Compile Include="UTestEnvironment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UTestModuleConnect.cs" />
     <Compile Include="UTestGetModuleIds.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -74,6 +75,10 @@
     <ProjectReference Include="..\PduApiClr\PduApiClr.vcxproj">
       <Project>{aa87b4c6-1ced-4465-b698-2a9c20dc608c}</Project>
       <Name>PduApiClr</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RMC_DF\RMC_DF.csproj">
+      <Project>{46004E67-3BD8-484B-A01F-254BB99CFB95}</Project>
+      <Name>RMC_DF</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
