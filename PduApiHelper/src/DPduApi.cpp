@@ -68,9 +68,14 @@ native_api::T_PDU_ERROR DPduApi::PDUDestruct()
   return (*s_fPDUDestruct)();
 }
 
+native_api::T_PDU_ERROR DPduApi::PDUGetObjectId(native_api::T_PDU_OBJT pduObjectType, CHAR8 * pShortname, UNUM32 * pPduObjectId)
+{
+  return (*s_fPDUGetObjectId)(pduObjectType, pShortname, pPduObjectId);
+}
+
 native_api::T_PDU_ERROR DPduApi::PDUGetModuleIds(native_api::PDU_MODULE_ITEM** pModuleIdList)
 {
-	return (*s_fPDUGetModuleIds)(pModuleIdList);
+  return (*s_fPDUGetModuleIds)(pModuleIdList);
 }
 
 native_api::T_PDU_ERROR DPduApi::PDUModuleConnect(UNUM32 hMod)

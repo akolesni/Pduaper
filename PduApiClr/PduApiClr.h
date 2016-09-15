@@ -1,6 +1,7 @@
 #pragma once
 #include "E_PDU_ERROR.h"
 #include "PduApiClr/PDU_MODULE_ITEM.h"
+#include "PduApiClr/T_PDU_OBJT.h"
 
 class DPduApi;
 
@@ -23,8 +24,9 @@ namespace PduApiClr
       E_PDU_ERROR PDUDestruct();
       E_PDU_ERROR PDUGetModuleIds([Out] PDU_MODULE_ITEM^ %pModuleIdList);
       E_PDU_ERROR PDUDestroyItem(PDU_ITEM^ pModuleIdList);
-      E_PDU_ERROR PDUModuleConnect(System::UInt32 hMod);
-      E_PDU_ERROR PDUModuleDisconnect(System::UInt32 hMod);
+      E_PDU_ERROR PDUModuleConnect(UInt32 hMod);
+      E_PDU_ERROR PDUModuleDisconnect(UInt32 hMod);
+      E_PDU_ERROR PDUGetObjectId(T_PDU_OBJT pduObjectType, String^ pShortname, UInt32% pPduObjectId);
     private:
       DPduApi* m_pPduApi = nullptr;
   };

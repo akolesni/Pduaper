@@ -110,7 +110,7 @@ namespace native_api {
   /// D.1.3 Object type values
   ///////////////////////////////////////////////////////////////////////////////
 
-  typedef enum E_PDU_OBJT
+  enum T_PDU_OBJT
   {
     PDU_OBJT_PROTOCOL = 0x8021,
     PDU_OBJT_BUSTYPE = 0x8022,
@@ -118,7 +118,7 @@ namespace native_api {
     PDU_OBJT_COMPARAM = 0x8024,
     PDU_OBJT_PINTYPE = 0x8025,
     PDU_OBJT_RESOURCE = 0x8026
-  } T_PDU_OBJT;
+  };
 
 
 

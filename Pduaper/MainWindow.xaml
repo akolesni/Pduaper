@@ -8,10 +8,11 @@
     xmlns:pduaper="clr-namespace:Pduaper"
     xmlns:resources="clr-namespace:Pduaper.Resources"
     xmlns:converter="clr-namespace:Pduaper.Converter"
+    xmlns:view="clr-namespace:Pduaper.View"
     Title="MainWindow"
     Height="350"
     Width="525">
-  <telerik:RadRibbonWindow.DataContext>
+  <!--<telerik:RadRibbonWindow.DataContext>
         <viewModel:MainWindowViewModel />
   </telerik:RadRibbonWindow.DataContext>
 
@@ -38,75 +39,10 @@
     <Grid.RowDefinitions >
         <RowDefinition Height="Auto"/>
         <RowDefinition Height="*"/>
-    </Grid.RowDefinitions>
-    <telerik:RadRibbonView x:Name="RadRibbonView" Grid.Row="0" Title="RibbonView Title" 
-                   ApplicationName="My Application" >
-      <!--<i:Interaction.Triggers>
-        <EventTrigger EventName="SelectionChanged" >
-          <i:InvokeCommandAction Command="{Binding SelectionChangedCommand}" />
-        </EventTrigger>
-      </i:Interaction.Triggers>-->
-
-      <telerik:EventToCommandBehavior.EventBindings>
-        <telerik:EventBinding 
-          Command="{Binding SelectionChangedCommand}" 
-          EventName="SelectionChanged">
-                    <telerik:EventBinding.CommandParameter>
-                        <MultiBinding Converter="{StaticResource EmptyTextValidation}">
-                            <Binding ElementName="RadRibbonView" Path="SelectedItem"/>
-                            <Binding ElementName="presenter" Path="ContentTemplateSelector"/>
-                            <Binding Source="presenter"/>
-                        </MultiBinding>
-                    </telerik:EventBinding.CommandParameter>    
-            </telerik:EventBinding>
-      </telerik:EventToCommandBehavior.EventBindings>
+    </Grid.RowDefinitions>-->
 
 
-      <telerik:RadRibbonView.QuickAccessToolBar>
-        <telerik:QuickAccessToolBar>
-          <telerik:RadRibbonButton Foreground="White" Text="Option 1" />
-        </telerik:QuickAccessToolBar>
-      </telerik:RadRibbonView.QuickAccessToolBar>
-     <!--
-      <telerik:RadRibbonTab Header="Home">
-        <telerik:RadRibbonGroup Header="Clipboard">
-          LargeImage="paste.png"
-          <telerik:RadRibbonSplitButton 
-                                                  Size="Large"
-                                                  Text="Paste"
-                                                  telerik:ScreenTip.Description="Paste the contents the Clipboard."
-                                                  telerik:ScreenTip.Title="Paste(Ctrl+V)">
-            <telerik:RadRibbonSplitButton.DropDownContent>
-              <telerik:RadContextMenu BorderThickness="0">
-                <telerik:RadMenuItem Header="Paste" />
-                <telerik:RadMenuItem Header="Paste Form" />
-              </telerik:RadContextMenu>
-            </telerik:RadRibbonSplitButton.DropDownContent>
-          </telerik:RadRibbonSplitButton>
-        </telerik:RadRibbonGroup>
-      </telerik:RadRibbonTab>
-      -->
-            <telerik:RadRibbonTab Header="Log" >
-                <telerik:RadRibbonGroup Header="D PDU Api">
-                    <telerik:RadRibbonButton Command="{Binding OpenLogCommand}">Open</telerik:RadRibbonButton>
-                </telerik:RadRibbonGroup>
-                <telerik:RadRibbonGroup Header="XML Tester">
-
-                </telerik:RadRibbonGroup>
-            </telerik:RadRibbonTab>
-            <telerik:RadRibbonTab Header="D PDU API" >
-                <telerik:RadRibbonGroup Header="D PDU Api">
-                    <telerik:RadRibbonButton>Open</telerik:RadRibbonButton>
-                </telerik:RadRibbonGroup>
-                <telerik:RadRibbonGroup Header="XML Tester">
-
-                </telerik:RadRibbonGroup>
-            </telerik:RadRibbonTab>
-
-
-        </telerik:RadRibbonView>
-
-        <ContentPresenter x:Name="presenter" Grid.Row="1" ContentTemplateSelector="{StaticResource templateSelector}" />
+        <!--<ContentPresenter x:Name="presenter" Grid.Row="1" ContentTemplateSelector="{StaticResource templateSelector}" />-->
 
     <!--<pduaper:LogView Grid.Row="1" DataContext="{Binding LogsViewModel}"/>-->
     <!--<telerik:RadGridView Grid.Row="1"
@@ -122,6 +58,8 @@
     </telerik:RadGridView>-->
 
 
+<Grid>
+        <view:MainView/>
+</Grid>
 
-  </Grid>
 </telerik:RadRibbonWindow>

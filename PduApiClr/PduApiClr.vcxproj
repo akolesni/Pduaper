@@ -144,6 +144,7 @@
     <ClInclude Include="PduApiClr\PDU_ITEM.h" />
     <ClInclude Include="PduApiClr\PDU_MODULE_DATA.h" />
     <ClInclude Include="PduApiClr\PDU_MODULE_ITEM.h" />
+    <ClInclude Include="PduApiClr\T_PDU_OBJT.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Stdafx.h" />
     <ClInclude Include="T_PDU_IT.h" />

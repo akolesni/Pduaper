@@ -42,8 +42,8 @@ public:
   native_api::T_PDU_ERROR PDUDestroyItem(native_api::PDU_ITEM *pItem);
    //T_PDU_ERROR PDURegisterEventCallback(UNUM32 hMod, UNUM32 hCLL,
    // CALLBACKFNC EventCallbackFunction);
-   //T_PDU_ERROR PDUGetObjectId(T_PDU_OBJT pduObjectType, CHAR8* pShortname,
-   // UNUM32 *pPduObjectId);
+  native_api::T_PDU_ERROR PDUGetObjectId(native_api::T_PDU_OBJT pduObjectType, CHAR8* pShortname,
+    UNUM32 *pPduObjectId);
   native_api::T_PDU_ERROR PDUGetModuleIds(native_api::PDU_MODULE_ITEM **pModuleIdList);
    //T_PDU_ERROR PDUGetResourceIds(UNUM32 hMod, PDU_RSC_DATA *pResourceIdData,
    // PDU_RSC_ID_ITEM **pResourceIdList);

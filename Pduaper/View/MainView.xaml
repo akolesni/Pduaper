@@ -1,0 +1,106 @@
+﻿<UserControl x:Class="Pduaper.View.MainView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Pduaper.View"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions >
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <telerik:RadRibbonView x:Name="RadRibbonView" Grid.Row="0" Title="RibbonView Title" 
+                   ApplicationName="My Application" >
+            <!--<i:Interaction.Triggers>
+        <EventTrigger EventName="SelectionChanged" >
+          <i:InvokeCommandAction Command="{Binding SelectionChangedCommand}" />
+        </EventTrigger>
+      </i:Interaction.Triggers>-->
+
+            <!--<telerik:EventToCommandBehavior.EventBindings>
+                <telerik:EventBinding 
+          Command="{Binding SelectionChangedCommand}" 
+          EventName="SelectionChanged">
+                    <telerik:EventBinding.CommandParameter>
+                        <MultiBinding Converter="{StaticResource EmptyTextValidation}">
+                            <Binding ElementName="RadRibbonView" Path="SelectedItem"/>
+                            <Binding ElementName="presenter" Path="ContentTemplateSelector"/>
+                            <Binding Source="presenter"/>
+                        </MultiBinding>
+                    </telerik:EventBinding.CommandParameter>
+                </telerik:EventBinding>
+            </telerik:EventToCommandBehavior.EventBindings>-->
+
+
+            <telerik:RadRibbonView.QuickAccessToolBar>
+                <telerik:QuickAccessToolBar>
+                    <telerik:RadRibbonButton Foreground="White" Text="Option 1" />
+                </telerik:QuickAccessToolBar>
+            </telerik:RadRibbonView.QuickAccessToolBar>
+            <!--
+      <telerik:RadRibbonTab Header="Home">
+        <telerik:RadRibbonGroup Header="Clipboard">
+          LargeImage="paste.png"
+          <telerik:RadRibbonSplitButton 
+                                                  Size="Large"
+                                                  Text="Paste"
+                                                  telerik:ScreenTip.Description="Paste the contents the Clipboard."
+                                                  telerik:ScreenTip.Title="Paste(Ctrl+V)">
+            <telerik:RadRibbonSplitButton.DropDownContent>
+              <telerik:RadContextMenu BorderThickness="0">
+                <telerik:RadMenuItem Header="Paste" />
+                <telerik:RadMenuItem Header="Paste Form" />
+              </telerik:RadContextMenu>
+            </telerik:RadRibbonSplitButton.DropDownContent>
+          </telerik:RadRibbonSplitButton>
+        </telerik:RadRibbonGroup>
+      </telerik:RadRibbonTab>
+      -->
+            <telerik:RadRibbonTab Header="Log" >
+                <telerik:RadRibbonGroup Header="D PDU Api">
+                    <telerik:RadRibbonButton Command="{Binding OpenLogCommand}">Open</telerik:RadRibbonButton>
+                </telerik:RadRibbonGroup>
+                <telerik:RadRibbonGroup Header="XML Tester">
+
+                </telerik:RadRibbonGroup>
+            </telerik:RadRibbonTab>
+            <telerik:RadRibbonTab Header="D PDU API" >
+                <telerik:RadRibbonGroup Header="D PDU Api">
+                    <telerik:RadRibbonButton>Open</telerik:RadRibbonButton>
+                </telerik:RadRibbonGroup>
+                <telerik:RadRibbonGroup Header="XML Tester">
+
+                </telerik:RadRibbonGroup>
+            </telerik:RadRibbonTab>
+
+
+        </telerik:RadRibbonView>
+        
+        <telerik:RadDocking Grid.Row="1">
+            <telerik:RadDocking.DocumentHost>
+            <telerik:RadSplitContainer>
+                <telerik:RadPaneGroup>
+                    <telerik:RadPane Header="header1">
+                        
+                    </telerik:RadPane>
+
+                </telerik:RadPaneGroup>
+
+            </telerik:RadSplitContainer>
+                </telerik:RadDocking.DocumentHost>
+            <telerik:RadSplitContainer>
+                <telerik:RadPaneGroup>
+                    <telerik:RadPane Header="header2">
+
+                    </telerik:RadPane>
+
+                </telerik:RadPaneGroup>
+
+            </telerik:RadSplitContainer>
+        </telerik:RadDocking>
+        
+    </Grid>
+</UserControl>

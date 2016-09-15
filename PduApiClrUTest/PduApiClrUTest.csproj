@@ -61,6 +61,7 @@
     <Compile Include="UTestDll.cs" />
     <Compile Include="UTestEnvironment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UTestGetObjectId.cs" />
     <Compile Include="UTestModuleConnect.cs" />
     <Compile Include="UTestGetModuleIds.cs" />
   </ItemGroup>

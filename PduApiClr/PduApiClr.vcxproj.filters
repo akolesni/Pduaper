@@ -51,6 +51,9 @@
     <ClInclude Include="PduApiClr\PDU_ITEM.h">
       <Filter>Header Files\PduApiClr</Filter>
     </ClInclude>
+    <ClInclude Include="PduApiClr\T_PDU_OBJT.h">
+      <Filter>Header Files\Defines</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PduApiClr.cpp">

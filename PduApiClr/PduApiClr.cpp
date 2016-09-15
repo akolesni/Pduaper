@@ -130,6 +130,16 @@ PduApiClr::E_PDU_ERROR PduApiClr::PduApi::PDUModuleDisconnect(System::UInt32 hMo
   return result;
 }
 
+PduApiClr::E_PDU_ERROR PduApiClr::PduApi::PDUGetObjectId(T_PDU_OBJT pduObjectType, String ^ pShortname, [Out]  UInt32 % pPduObjectId)
+{
+  PduApiClr::E_PDU_ERROR result = PduApiClr::E_PDU_ERROR::PDU_ERR_FCT_FAILED;
 
-//native_api::T_PDU_ERROR PDUDestroyItem(native_api::PDU_ITEM *pItem);
+  char* strShortname = (char*)(Runtime::InteropServices::Marshal::StringToHGlobalAnsi(pShortname)).ToPointer();
+  UNUM32 unObjectId = 0xFFFFFFFE;
+  result = PduApiClr::E_PDU_ERROR(this->m_pPduApi->PDUGetObjectId(native_api::T_PDU_OBJT(pduObjectType), strShortname, &unObjectId));
+  pPduObjectId = unObjectId;
 
+  Runtime::InteropServices::Marshal::FreeHGlobal(IntPtr((void*)strShortname));
+
+  return result;
+}
