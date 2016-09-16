@@ -6,6 +6,8 @@ using System.Xml.Linq;
 
 namespace RMC_DF
 {
+  using RMC_DF.Entities.RdfEntities;
+
   internal class RdfManager
   {
     private string GetRdfPath()
@@ -43,13 +45,17 @@ namespace RMC_DF
 
       foreach (var api in apis.Elements())
       {
-        MVCI_PDU_API mvci            = new MVCI_PDU_API();
-        mvci.SHORT_NAME              = api.Element("SHORT_NAME").Value;
-        mvci.DESCRIPTION             = api.Element("DESCRIPTION").Value;
-        mvci.SUPPLIER_NAME           = api.Element("SUPPLIER_NAME").Value;
-        mvci.LIBRARY_FILE            = api.Element("LIBRARY_FILE").Attribute("URI").Value;
-        mvci.MODULE_DESCRIPTION_FILE = api.Element("MODULE_DESCRIPTION_FILE").Attribute("URI").Value;
-        mvci.CABLE_DESCRIPTION_FILE  = api.Element("CABLE_DESCRIPTION_FILE").Attribute("URI").Value;
+        MVCI_PDU_API mvci = new MVCI_PDU_API
+        {
+          SHORT_NAME = api.Element("SHORT_NAME").Value,
+          DESCRIPTION = api.Element("DESCRIPTION").Value,
+          SUPPLIER_NAME = api.Element("SUPPLIER_NAME").Value,
+          LIBRARY_FILE = api.Element("LIBRARY_FILE").Attribute("URI").Value,
+          MODULE_DESCRIPTION_FILE =
+            api.Element("MODULE_DESCRIPTION_FILE").Attribute("URI").Value,
+          CABLE_DESCRIPTION_FILE =
+            api.Element("CABLE_DESCRIPTION_FILE").Attribute("URI").Value
+        };
 
 
         rdf.Add(mvci);

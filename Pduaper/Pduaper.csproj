@@ -157,7 +157,43 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\all_categories.png" />
+    <Resource Include="Images\blue_category.png" />
+    <Resource Include="Images\calendar_16x16.png" />
+    <Resource Include="Images\calendar_32x32.png" />
+    <Resource Include="Images\calendar_categories.png" />
+    <Resource Include="Images\calendar_Delete.png" />
+    <Resource Include="Images\calendar_month.png" />
+    <Resource Include="Images\calendar_new.png" />
+    <Resource Include="Images\calendar_next_range.png" />
+    <Resource Include="Images\calendar_timeline.png" />
+    <Resource Include="Images\calendar_time_marker.png" />
+    <Resource Include="Images\calendar_today.png" />
+    <Resource Include="Images\calendar_week.png" />
+    <Resource Include="Images\calendar_work.png" />
+    <Resource Include="Images\Categorize.png" />
+    <Resource Include="Images\complete.png" />
+    <Resource Include="Images\Delete.png" />
+    <Resource Include="Images\Discard.png" />
+    <Resource Include="Images\email_16x16.png" />
+    <Resource Include="Images\FollowUp.png" />
+    <Resource Include="Images\Forward.png" />
+    <Resource Include="Images\green_category.png" />
+    <Resource Include="Images\Icon.ico" />
+    <Resource Include="Images\mail_32x32.png" />
+    <Resource Include="Images\NewEmail.png" />
+    <Resource Include="Images\Popout.png" />
+    <Resource Include="Images\ReadUnread.png" />
+    <Resource Include="Images\red_category.png" />
+    <Resource Include="Images\reminder.png" />
+    <Resource Include="Images\Reply.png" />
+    <Resource Include="Images\ReplyAll.png" />
+    <Resource Include="Images\today.png" />
+    <Resource Include="Images\tomorrow.png" />
+    <Resource Include="Images\Undo.png" />
+    <Resource Include="Images\week.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

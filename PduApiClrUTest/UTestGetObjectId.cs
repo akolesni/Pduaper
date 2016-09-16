@@ -70,10 +70,10 @@ namespace PduApiClrUTest
       Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUConstruct");
 
       UInt32 objId;
-      this.pduError = this.pduApi.PDUGetObjectId(T_PDU_OBJT.PDU_OBJT_COMPARAM, "CP", out objId);
+      this.pduError = this.pduApi.PDUGetObjectId(T_PDU_OBJT.PDU_OBJT_COMPARAM, "CP_P2Max", out objId);
       Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUGetObjectId");
 
-      Assert.AreNotEqual(objId, 7, "ObjectId value");
+      Assert.AreEqual(objId, (UInt32)12, "ObjectId value != 12 :" + objId);
 
       this.pduError = this.pduApi.PDUDestruct();
       Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUDestruct");

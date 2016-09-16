@@ -15,5 +15,13 @@
       RdfManager rdfManager = new RdfManager();
       return rdfManager.GetRdf();
     }
+
+    public Mdf GetMdf(string shortName)
+    {
+      Mdf mdf = new Mdf();
+      mdf.Load(shortName);
+
+      return mdf;
+    }
   }
 }

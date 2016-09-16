@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RMC_DF.Entities
+﻿namespace RMC_DF.Entities.RdfEntities
 {
   public class MVCI_PDU_API
   {

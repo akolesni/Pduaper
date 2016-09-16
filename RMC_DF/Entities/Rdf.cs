@@ -3,6 +3,8 @@
   using System.Collections.Generic;
   using System.Linq;
 
+  using RMC_DF.Entities.RdfEntities;
+
   public class Rdf : List<MVCI_PDU_API>
   {
     public MVCI_PDU_API GetVci(string shortName)

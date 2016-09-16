@@ -41,9 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DfFacade.cs" />
-    <Compile Include="Entities\MVCI_PDU_API.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Entities\Cdf.cs" />
+    <Compile Include="Entities\Mdf.cs" />
+    <Compile Include="Entities\MdfEntities\ErrorCode.cs" />
     <Compile Include="Entities\Rdf.cs" />
+    <Compile Include="Entities\RdfEntities\MVCI_PDU_API.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RdfManager.cs" />
   </ItemGroup>
   <ItemGroup />
