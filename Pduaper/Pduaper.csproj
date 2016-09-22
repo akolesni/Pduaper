@@ -86,6 +86,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Resources\OutlookBarContentTemplateSelector.cs" />
+    <Compile Include="ViewModel\MailMenuViewModel.cs" />
+    <Compile Include="ViewModel\MenuItems.cs" />
     <Compile Include="View\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
@@ -103,7 +106,6 @@
     <Compile Include="Club.cs" />
     <Compile Include="Command\OpenLogCommand.cs" />
     <Compile Include="Command\SelectionChangedCommand.cs" />
-    <Compile Include="Converter\SelectCommandConverter.cs" />
     <Compile Include="LogView.xaml.cs">
       <DependentUpon>LogView.xaml</DependentUpon>
     </Compile>
@@ -114,10 +116,6 @@
     <Page Include="RmcDfView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Themes\Generic.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\MainView.xaml">
       <SubType>Designer</SubType>
@@ -193,6 +191,29 @@
     <Resource Include="Images\tomorrow.png" />
     <Resource Include="Images\Undo.png" />
     <Resource Include="Images\week.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Converter\" />
+    <Folder Include="Themes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\1PersonalFolders.png" />
+    <Resource Include="Images\2DeletedItems.png" />
+    <Resource Include="Images\3Drafts.png" />
+    <Resource Include="Images\4Inbox.png" />
+    <Resource Include="Images\calendarBig.png" />
+    <Resource Include="Images\calendarSmall.png" />
+    <Resource Include="Images\contact.png" />
+    <Resource Include="Images\contactsBig.png" />
+    <Resource Include="Images\contactsSmall.png" />
+    <Resource Include="Images\junk.png" />
+    <Resource Include="Images\letter.png" />
+    <Resource Include="Images\sent.png" />
+    <Resource Include="Images\tasksBig.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\mailBig.png" />
+    <Resource Include="Images\mailSmall.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

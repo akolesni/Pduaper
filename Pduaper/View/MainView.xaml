@@ -4,10 +4,72 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     xmlns:local="clr-namespace:Pduaper.View"
+    xmlns:resources="clr-namespace:Pduaper.Resources"
     xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
     mc:Ignorable="d" 
-    d:DesignHeight="300"
+    d:DesignHeight="500"
     d:DesignWidth="300">
+
+  <UserControl.Resources>
+    <DataTemplate x:Key="outlookBarMailContentTemplate">
+      <telerik:RadTreeView ImagesBaseDir="/" ItemsSource="{Binding MailDirectories}" IsLineEnabled="True">
+        <telerik:RadTreeView.Resources>
+          <Style TargetType="telerik:RadTreeViewItem">
+            <Setter Property="DefaultImageSrc" Value="{Binding IconSource}" />
+            <Setter Property="IsExpanded" Value="True" />
+          </Style>
+        </telerik:RadTreeView.Resources>
+
+        <telerik:RadTreeView.ItemTemplate>
+          <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+            <TextBlock Text="{Binding Header}" />
+          </HierarchicalDataTemplate>
+        </telerik:RadTreeView.ItemTemplate>
+      </telerik:RadTreeView>
+    </DataTemplate>
+
+    <DataTemplate x:Key="outlookBarContactsContentTemplate">
+      <telerik:RadListBox ItemsSource="{Binding ContactsList}">
+        <telerik:RadListBox.ItemTemplate>
+          <DataTemplate>
+            <StackPanel Orientation="Horizontal" Margin="5 0 0 5">
+              <Image Source="{Binding IconSource}" Margin="0 0 5 0"/>
+              <TextBlock Text="{Binding Name}" />
+            </StackPanel>
+          </DataTemplate>
+        </telerik:RadListBox.ItemTemplate>
+      </telerik:RadListBox>
+    </DataTemplate>
+
+    <DataTemplate x:Key="outlookBarCalendarContentTemplate">
+      <telerik:RadCalendar Margin="20" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="outlookBarItemTemplate">
+      <TextBlock Text="{Binding Header}" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="outlookBarTitleTemplate">
+      <TextBlock Text="{Binding Header}" 
+                       FontWeight="Bold" 
+                       Foreground="#585858" 
+                       Height="26" FontSize="18" 
+                       FontStyle="Italic" 
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Center" />
+    </DataTemplate>
+
+    <Style TargetType="telerik:RadOutlookBarItem">
+      <Setter Property="Icon" Value="{Binding IconSource}" />
+      <Setter Property="SmallIcon" Value="{Binding IconSourceSmall}" />
+    </Style>
+
+    <resources:OutlookBarContentTemplateSelector x:Key="contentTemplateSelector" 
+                                                 MailTemplate="{StaticResource outlookBarMailContentTemplate}"
+                                                 CalendarTemplate="{StaticResource outlookBarCalendarContentTemplate}"
+                                                 ContactsTemplate="{StaticResource outlookBarContactsContentTemplate}"/>
+  </UserControl.Resources>
+  
   <Grid>
     <Grid.RowDefinitions >
       <RowDefinition Height="Auto"/>
@@ -89,29 +151,42 @@ LargeImage="paste.png"
       <telerik:RadSplitContainer InitialPosition="DockedLeft">
         <telerik:RadPaneGroup>
           <telerik:RadPane Header="header2" CanUserClose="False" CanFloat="False" CanDockInDocumentHost="False">
-            <!-- Outlook -->
+
+            <telerik:RadOutlookBar Name="radOutlookBar"  
+                               ItemsSource="{Binding MenuItems}"
+                               MinimizedButtonContent="{Binding RelativeSource={RelativeSource Self},Path=SelectedItem.Header}"
+                               ContentTemplateSelector="{StaticResource contentTemplateSelector}"
+                               ItemTemplate="{StaticResource outlookBarItemTemplate}"
+                               TitleTemplate="{StaticResource outlookBarTitleTemplate}"
+                               ItemDropDownContentTemplate="{StaticResource outlookBarItemTemplate }" />
+
+            <!-- Outlook --><!--
             <telerik:RadOutlookBar x:Name="RadOutlookBar1">
-              <!-- Item RDF -->
+              --><!-- Item RDF --><!--
               <telerik:RadOutlookBarItem
                   Header="RDF"
-                  Icon="NewEmail.png">
+                  Icon="/Pduaper;component/Images/Categorize.png">
                 <TextBlock Text="Item 1 Content" />
               </telerik:RadOutlookBarItem>
-              <!-- Item -->
+              --><!-- Item --><!--
               <telerik:RadOutlookBarItem
                   Header="Item 2" 
-                  Icon="NewEmail.png"
+                  Icon="/Pduaper;component/Images/Categorize.png"
                   IsSelected="True">
                 <TextBlock Text="Item 2 Content" />
               </telerik:RadOutlookBarItem>
-              <!-- Item -->
+              --><!-- Item --><!--
               <telerik:RadOutlookBarItem
                   Header="Item 3"
-                  Icon="NewEmail.png">
+                  Icon="/Pduaper;component/Images/Categorize.png">
                 <TextBlock Text="Item 3 Content" />
               </telerik:RadOutlookBarItem>
             </telerik:RadOutlookBar>
-            <!-- Outlook -->
+            --><!-- Outlook -->
+            
+            
+            
+            
           </telerik:RadPane>
         </telerik:RadPaneGroup>
       </telerik:RadSplitContainer>

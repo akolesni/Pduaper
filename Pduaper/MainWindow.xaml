@@ -6,8 +6,6 @@
     xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
     xmlns:viewModel="clr-namespace:Pduaper.ViewModel"
     xmlns:pduaper="clr-namespace:Pduaper"
-    xmlns:resources="clr-namespace:Pduaper.Resources"
-    xmlns:converter="clr-namespace:Pduaper.Converter"
     xmlns:view="clr-namespace:Pduaper.View"
     Title="MainWindow"
     Height="350"
