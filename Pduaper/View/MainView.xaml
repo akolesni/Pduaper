@@ -4,6 +4,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     xmlns:local="clr-namespace:Pduaper.View"
+             xmlns:we="clr-namespace:WindowsExplorer"
     xmlns:resources="clr-namespace:Pduaper.Resources"
     xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
     mc:Ignorable="d" 
@@ -29,7 +30,12 @@
     </DataTemplate>
 
     <DataTemplate x:Key="outlookBarContactsContentTemplate">
-      <telerik:RadListBox ItemsSource="{Binding ContactsList}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+      <telerik:RadListBox Grid.Row="0" ItemsSource="{Binding ContactsList}">
         <telerik:RadListBox.ItemTemplate>
           <DataTemplate>
             <StackPanel Orientation="Horizontal" Margin="5 0 0 5">
@@ -39,7 +45,9 @@
           </DataTemplate>
         </telerik:RadListBox.ItemTemplate>
       </telerik:RadListBox>
-    </DataTemplate>
+                <we:MainWindow Grid.Row="1"/>
+            </Grid>
+        </DataTemplate>
 
     <DataTemplate x:Key="outlookBarCalendarContentTemplate">
       <telerik:RadCalendar Margin="20" />
