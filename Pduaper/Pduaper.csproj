@@ -225,6 +225,12 @@
     <Resource Include="Images\mailBig.png" />
     <Resource Include="Images\mailSmall.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RMC_DF\RMC_DF.csproj">
+      <Project>{46004E67-3BD8-484B-A01F-254BB99CFB95}</Project>
+      <Name>RMC_DF</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

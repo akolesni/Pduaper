@@ -1,22 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
-namespace WindowsExplorer
+﻿namespace WindowsExplorer
 {
-  using Telerik.Windows.Controls;
+    using System.Windows;
+    using System.Windows.Controls;
 
-  /// <summary>
+    using Telerik.Windows;
+    using Telerik.Windows.Controls;
+
+    /// <summary>
   /// Interaction logic for MainWindow.xaml
   /// </summary>
   public partial class MainWindow : UserControl
@@ -25,7 +15,7 @@ namespace WindowsExplorer
     {
       InitializeComponent();
     }
-    private void RadTreeView_LoadOnDemand(object sender, Telerik.Windows.RadRoutedEventArgs e)
+    private void RadTreeView_LoadOnDemand(object sender, RadRoutedEventArgs e)
     {
       e.Handled = true;
       RadTreeViewItem expandedItem = e.OriginalSource as RadTreeViewItem;

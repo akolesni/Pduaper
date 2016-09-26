@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RMC_DF;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -8,7 +9,9 @@ using Telerik.Windows.Controls;
 
 namespace Pduaper.ViewModel
 {
-  public class MailMenuViewModel : ViewModelBase
+    using RMC_DF.Entities;
+
+    public class MailMenuViewModel : ViewModelBase
   {
     public ObservableCollection<MenuItemBase> MenuItems { get; set; }
 
@@ -68,15 +71,17 @@ namespace Pduaper.ViewModel
       this.MenuItems.Add(calendarMenuItem);
 
       var contactsMenuItem = new ContactsMenuItem() { Content = "Contacts content", Header = "Contacts", IconSource = "../Images/contactsBig.png", IconSourceSmall = "../Images/contactsSmall.png" };
-      contactsMenuItem.ContactsList = new ObservableCollection<Person>()
-            {
-                new Person() { Name = "John Smith", IconSource = "../Images/contact.png"},
-                new Person() { Name = "James Bond", IconSource = "../Images/contact.png"},
-                new Person() { Name = "Haris Pilton", IconSource = "../Images/contact.png"},
-                new Person() { Name = "Kim LeBlank", IconSource = "../Images/contact.png"},
-                new Person() { Name = "Rock Lee", IconSource = "../Images/contact.png"},
-                new Person() { Name = "Jim Brown", IconSource = "../Images/contact.png"},
-            };
+
+            DfFacade dfFacade = new DfFacade();
+            Rdf rdf = dfFacade.GetRdf();
+
+
+        contactsMenuItem.ContactsList = new ObservableCollection<Person>();
+
+        foreach (var VARIABLE in rdf)
+        {
+                contactsMenuItem.ContactsList.Add(new Person() { Name = VARIABLE.SHORT_NAME, IconSource = "../Images/contact.png" });
+        }
 
       this.MenuItems.Add(contactsMenuItem);
     }
