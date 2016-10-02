@@ -22,11 +22,16 @@ public:
    //T_PDU_ERROR PDUGetLastError(UNUM32 hMod, UNUM32 hCLL, T_PDU_ERR_EVT
    // *pErrorCode, UNUM32 *phCoP, UNUM32 *pTimestamp, UNUM32 *pExtraErrorInfo);
    //T_PDU_ERROR PDUGetResourceStatus(PDU_RSC_STATUS_ITEM *pResourceStatus);
-   //T_PDU_ERROR PDUCreateComLogicalLink(UNUM32 hMod, PDU_RSC_DATA *pRscData,
-   // UNUM32 resourceId, void *pCllTag, UNUM32 *phCLL, PDU_FLAG_DATA *pCllCreateFlag);
-   //T_PDU_ERROR PDUDestroyComLogicalLink(UNUM32 hMod, UNUM32 hCLL);
-   //T_PDU_ERROR PDUConnect(UNUM32 hMod, UNUM32 hCLL);
-   //T_PDU_ERROR PDUDisconnect(UNUM32 hMod, UNUM32 hCLL);
+  native_api::T_PDU_ERROR PDUCreateComLogicalLink(
+    UNUM32 hMod,
+    native_api::PDU_RSC_DATA *pRscData,
+    UNUM32 resourceId,
+    void *pCllTag,
+    UNUM32 *phCLL,
+    native_api::PDU_FLAG_DATA *pCllCreateFlag);
+  native_api::T_PDU_ERROR PDUDestroyComLogicalLink(UNUM32 hMod, UNUM32 hCLL);
+  native_api::T_PDU_ERROR PDUConnect(UNUM32 hMod, UNUM32 hCLL);
+  native_api::T_PDU_ERROR PDUDisconnect(UNUM32 hMod, UNUM32 hCLL);
    //T_PDU_ERROR PDULockResource(UNUM32 hMod, UNUM32 hCLL, UNUM32 LockMask);
    //T_PDU_ERROR PDUUnlockResource(UNUM32 hMod, UNUM32 hCLL, UNUM32 LockMask);
    //T_PDU_ERROR PDUGetComParam(UNUM32 hMod, UNUM32 hCLL, UNUM32 ParamId,
@@ -40,8 +45,8 @@ public:
    //T_PDU_ERROR PDUGetEventItem(UNUM32 hMod, UNUM32 hCLL,
    // PDU_EVENT_ITEM **pEventItem);
   native_api::T_PDU_ERROR PDUDestroyItem(native_api::PDU_ITEM *pItem);
-   //T_PDU_ERROR PDURegisterEventCallback(UNUM32 hMod, UNUM32 hCLL,
-   // CALLBACKFNC EventCallbackFunction);
+	native_api::T_PDU_ERROR PDURegisterEventCallback(UNUM32 hMod, UNUM32 hCLL,
+	                                                 native_api::CALLBACKFNC EventCallbackFunction);
   native_api::T_PDU_ERROR PDUGetObjectId(native_api::T_PDU_OBJT pduObjectType, CHAR8* pShortname,
     UNUM32 *pPduObjectId);
   native_api::T_PDU_ERROR PDUGetModuleIds(native_api::PDU_MODULE_ITEM **pModuleIdList);
@@ -57,7 +62,7 @@ public:
     native_api::T_PDU_ERROR PDUModuleDisconnect(UNUM32 hMod);
    //T_PDU_ERROR PDUGetTimestamp(UNUM32 hMod, UNUM32 *pTimestamp);
 
-  int Do();
+  //int Do();
 
 private:
   void InitFunctors(PDULibraryManager* _pLibraraManager);
@@ -67,32 +72,32 @@ private:
 
    FctPDUConstruct* s_fPDUConstruct;
    FctPDUDestruct* s_fPDUDestruct;
-   FctPDUIoCtl* s_fPDUIoCtl;
-   FctPDUGetVersion* s_fPDUGetVersion;
-   FctPDUGetStatus* s_fPDUGetStatus;
-   FctPDUGetLastError* s_fPDUGetLastError;
-   FctPDUGetResourceStatus* s_fPDUGetResourceStatus;
+   //FctPDUIoCtl* s_fPDUIoCtl;
+   //FctPDUGetVersion* s_fPDUGetVersion;
+   //FctPDUGetStatus* s_fPDUGetStatus;
+   //FctPDUGetLastError* s_fPDUGetLastError;
+   //FctPDUGetResourceStatus* s_fPDUGetResourceStatus;
    FctPDUCreateComLogicalLink* s_fPDUCreateComLogicalLink;
    FctPDUDestroyComLogicalLink* s_fPDUDestroyComLogicalLink;
    FctPDUConnect* s_fPDUConnect;
    FctPDUDisconnect* s_fPDUDisconnect;
-   FctPDULockResource* s_fPDULockResource;
-   FctPDUUnlockResource* s_fPDUUnlockResource;
-   FctPDUGetComParam* s_fPDUGetComParam;
-   FctPDUSetComParam* s_fPDUSetComParam;
-   FctPDUStartComPrimitive* s_fPDUStartComPrimitive;
-   FctPDUCancelComPrimitive* s_fPDUCancelComPrimitive;
-   FctPDUGetEventItem* s_fPDUGetEventItem;
+   //FctPDULockResource* s_fPDULockResource;
+   //FctPDUUnlockResource* s_fPDUUnlockResource;
+   //FctPDUGetComParam* s_fPDUGetComParam;
+   //FctPDUSetComParam* s_fPDUSetComParam;
+   //FctPDUStartComPrimitive* s_fPDUStartComPrimitive;
+   //FctPDUCancelComPrimitive* s_fPDUCancelComPrimitive;
+   //FctPDUGetEventItem* s_fPDUGetEventItem;
    FctPDUDestroyItem* s_fPDUDestroyItem;
    FctPDURegisterEventCallback* s_fPDURegisterEventCallback;
    FctPDUGetObjectId* s_fPDUGetObjectId;
    FctPDUGetModuleIds* s_fPDUGetModuleIds;
-   FctPDUGetResourceIds* s_fPDUGetResourceIds;
-    FctPDUGetConflictingResources* s_fPDUGetConflictingResources;
-   FctPDUGetUniqueRespIdTable* s_fPDUGetUniqueRespIdTable;
-   FctPDUSetUniqueRespIdTable* s_fPDUSetUniqueRespIdTable;
+   //FctPDUGetResourceIds* s_fPDUGetResourceIds;
+   // FctPDUGetConflictingResources* s_fPDUGetConflictingResources;
+   //FctPDUGetUniqueRespIdTable* s_fPDUGetUniqueRespIdTable;
+   //FctPDUSetUniqueRespIdTable* s_fPDUSetUniqueRespIdTable;
    FctPDUModuleConnect* s_fPDUModuleConnect;
    FctPDUModuleDisconnect* s_fPDUModuleDisconnect;
-   FctPDUGetTimestamp* s_fPDUGetTimestamp;
+   //FctPDUGetTimestamp* s_fPDUGetTimestamp;
 };
 

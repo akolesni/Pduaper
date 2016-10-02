@@ -54,6 +54,15 @@
     <ClInclude Include="PduApiClr\T_PDU_OBJT.h">
       <Filter>Header Files\Defines</Filter>
     </ClInclude>
+    <ClInclude Include="PduApiClr\PDU_RSC_DATA.h">
+      <Filter>Header Files\PduApiClr</Filter>
+    </ClInclude>
+    <ClInclude Include="PduApiClr\PDU_PIN_DATA.h">
+      <Filter>Header Files\PduApiClr</Filter>
+    </ClInclude>
+    <ClInclude Include="PduApiClr\PDU_FLAG_DATA.h">
+      <Filter>Header Files\PduApiClr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PduApiClr.cpp">
@@ -69,6 +78,15 @@
       <Filter>Source Files\PduApiClr</Filter>
     </ClCompile>
     <ClCompile Include="PduApiClr\PDU_MODULE_DATA.cpp">
+      <Filter>Source Files\PduApiClr</Filter>
+    </ClCompile>
+    <ClCompile Include="PduApiClr\PDU_RSC_DATA.cpp">
+      <Filter>Source Files\PduApiClr</Filter>
+    </ClCompile>
+    <ClCompile Include="PduApiClr\PDU_PIN_DATA.cpp">
+      <Filter>Source Files\PduApiClr</Filter>
+    </ClCompile>
+    <ClCompile Include="PduApiClr\PDU_FLAG_DATA.cpp">
       <Filter>Source Files\PduApiClr</Filter>
     </ClCompile>
   </ItemGroup>

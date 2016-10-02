@@ -141,9 +141,12 @@
     <ClInclude Include="E_PDU_ERROR.h" />
     <ClInclude Include="PduApiClr.h" />
     <ClInclude Include="PduApiClr\E_PDU_STATUS.h" />
+    <ClInclude Include="PduApiClr\PDU_FLAG_DATA.h" />
     <ClInclude Include="PduApiClr\PDU_ITEM.h" />
     <ClInclude Include="PduApiClr\PDU_MODULE_DATA.h" />
     <ClInclude Include="PduApiClr\PDU_MODULE_ITEM.h" />
+    <ClInclude Include="PduApiClr\PDU_PIN_DATA.h" />
+    <ClInclude Include="PduApiClr\PDU_RSC_DATA.h" />
     <ClInclude Include="PduApiClr\T_PDU_OBJT.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Stdafx.h" />
@@ -152,8 +155,11 @@
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="PduApiClr.cpp" />
+    <ClCompile Include="PduApiClr\PDU_FLAG_DATA.cpp" />
     <ClCompile Include="PduApiClr\PDU_MODULE_DATA.cpp" />
     <ClCompile Include="PduApiClr\PDU_MODULE_ITEM.cpp" />
+    <ClCompile Include="PduApiClr\PDU_PIN_DATA.cpp" />
+    <ClCompile Include="PduApiClr\PDU_RSC_DATA.cpp" />
     <ClCompile Include="Stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
