@@ -14,8 +14,8 @@ public:
   // PDU API
   native_api::T_PDU_ERROR PDUConstruct(CHAR8* pszOption, void* pAPITag);
   native_api::T_PDU_ERROR PDUDestruct();
-   //T_PDU_ERROR PDUIoCtl(UNUM32 hMod, UNUM32 hCLL, UNUM32 IoCtlCommandId,
-   // PDU_DATA_ITEM *pInputData, PDU_DATA_ITEM **pOutputData);
+  native_api::T_PDU_ERROR PDUIoCtl(UNUM32 hMod, UNUM32 hCLL, UNUM32 IoCtlCommandId,
+                                   native_api::PDU_DATA_ITEM *pInputData, native_api::PDU_DATA_ITEM **pOutputData);
    //T_PDU_ERROR PDUGetVersion(UNUM32 hMod, PDU_VERSION_DATA *pVersionData);
    //T_PDU_ERROR PDUGetStatus(UNUM32 hMod, UNUM32 hCLL, UNUM32 hCoP,
    // T_PDU_STATUS *pStatusCode, UNUM32 *pTimestamp, UNUM32 *pExtraInfo);
@@ -72,7 +72,7 @@ private:
 
    FctPDUConstruct* s_fPDUConstruct;
    FctPDUDestruct* s_fPDUDestruct;
-   //FctPDUIoCtl* s_fPDUIoCtl;
+   FctPDUIoCtl* s_fPDUIoCtl;
    //FctPDUGetVersion* s_fPDUGetVersion;
    //FctPDUGetStatus* s_fPDUGetStatus;
    //FctPDUGetLastError* s_fPDUGetLastError;

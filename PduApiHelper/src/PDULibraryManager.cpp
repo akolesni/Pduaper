@@ -94,7 +94,7 @@ void PDULibraryManager::InitPointerMap()
 {
   InstantiateFunction<FctPDUConstruct>(m_PduApi, "PDUConstruct");
   InstantiateFunction<FctPDUDestruct>(m_PduApi, "PDUDestruct");
-  //InstantiateFunction<FctPDUIoCtl>(m_PduApi, "PDUIoCtl");
+  InstantiateFunction<FctPDUIoCtl>(m_PduApi, "PDUIoCtl");
   //InstantiateFunction<FctPDUGetVersion>(m_PduApi, "PDUGetVersion");
   //InstantiateFunction<FctPDUGetStatus>(m_PduApi, "PDUGetStatus");
   //InstantiateFunction<FctPDUGetLastError>(m_PduApi, "PDUGetLastError");

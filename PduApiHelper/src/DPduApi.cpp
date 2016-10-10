@@ -68,6 +68,11 @@ native_api::T_PDU_ERROR DPduApi::PDUDestruct()
   return (*s_fPDUDestruct)();
 }
 
+native_api::T_PDU_ERROR DPduApi::PDUIoCtl(UNUM32 hMod, UNUM32 hCLL, UNUM32 IoCtlCommandId, native_api::PDU_DATA_ITEM * pInputData, native_api::PDU_DATA_ITEM ** pOutputData)
+{
+  return (*s_fPDUIoCtl)(hMod, hCLL, IoCtlCommandId, pInputData, pOutputData);
+}
+
 native_api::T_PDU_ERROR DPduApi::PDUCreateComLogicalLink(UNUM32 hMod, native_api::PDU_RSC_DATA* pRscData, UNUM32 resourceId, void* pCllTag, UNUM32* phCLL, native_api::PDU_FLAG_DATA* pCllCreateFlag)
 {
   return (*s_fPDUCreateComLogicalLink)(hMod, pRscData, resourceId, pCllTag, phCLL, pCllCreateFlag);
@@ -124,8 +129,8 @@ void DPduApi::InitFunctors(PDULibraryManager* _pLibraraManager)
     _pLibraraManager->GetFunction("PDUConstruct"));
   s_fPDUDestruct = reinterpret_cast<FctPDUDestruct*>(
     _pLibraraManager->GetFunction("PDUDestruct"));
-  //s_fPDUIoCtl = reinterpret_cast<FctPDUIoCtl*>(
-  //  _pLibraraManager->GetFunction("PDUIoCtl"));
+  s_fPDUIoCtl = reinterpret_cast<FctPDUIoCtl*>(
+    _pLibraraManager->GetFunction("PDUIoCtl"));
   //s_fPDUGetVersion = reinterpret_cast<FctPDUGetVersion*>(
   //  _pLibraraManager->GetFunction("PDUGetVersion"));
   //s_fPDUGetStatus = reinterpret_cast<FctPDUGetStatus*>(

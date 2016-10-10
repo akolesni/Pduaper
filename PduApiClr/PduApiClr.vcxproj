@@ -138,10 +138,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="E_PDU_ERROR.h" />
     <ClInclude Include="PduApiClr.h" />
+    <ClInclude Include="PduApiClr\E_PDU_ERROR.h" />
     <ClInclude Include="PduApiClr\E_PDU_STATUS.h" />
+    <ClInclude Include="PduApiClr\IPV4.h" />
+    <ClInclude Include="PduApiClr\IPV6.h" />
+    <ClInclude Include="PduApiClr\PDU_DATA_ITEM.h" />
     <ClInclude Include="PduApiClr\PDU_FLAG_DATA.h" />
+    <ClInclude Include="PduApiClr\PDU_IO_VEHICLE_ID_REQUEST.h" />
+    <ClInclude Include="PduApiClr\PDU_IP_ADDR_INFO.h" />
     <ClInclude Include="PduApiClr\PDU_ITEM.h" />
     <ClInclude Include="PduApiClr\PDU_MODULE_DATA.h" />
     <ClInclude Include="PduApiClr\PDU_MODULE_ITEM.h" />
@@ -155,11 +160,14 @@
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="PduApiClr.cpp" />
+    <ClCompile Include="PduApiClr\CombinationMode.h" />
+    <ClCompile Include="PduApiClr\PDU_DATA_ITEM.cpp" />
     <ClCompile Include="PduApiClr\PDU_FLAG_DATA.cpp" />
     <ClCompile Include="PduApiClr\PDU_MODULE_DATA.cpp" />
     <ClCompile Include="PduApiClr\PDU_MODULE_ITEM.cpp" />
     <ClCompile Include="PduApiClr\PDU_PIN_DATA.cpp" />
     <ClCompile Include="PduApiClr\PDU_RSC_DATA.cpp" />
+    <ClCompile Include="PduApiClr\PreselectionMode.h" />
     <ClCompile Include="Stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

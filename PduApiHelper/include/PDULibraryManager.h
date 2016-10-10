@@ -9,8 +9,8 @@
 
 typedef native_api::T_PDU_ERROR PDU_API_CALL_CONV FctPDUConstruct(CHAR8* OptionStr, void *pAPITag);
 typedef native_api::T_PDU_ERROR PDU_API_CALL_CONV FctPDUDestruct();
-//typedef native_api::T_PDU_ERROR PDU_API_CALL_CONV FctPDUIoCtl(UNUM32 hMod, UNUM32 hCLL, UNUM32 IoCtlCommandId,
-//                                                              native_api::PDU_DATA_ITEM *pInputData, native_api::PDU_DATA_ITEM **pOutputData);
+typedef native_api::T_PDU_ERROR PDU_API_CALL_CONV FctPDUIoCtl(UNUM32 hMod, UNUM32 hCLL, UNUM32 IoCtlCommandId,
+                                                              native_api::PDU_DATA_ITEM *pInputData, native_api::PDU_DATA_ITEM **pOutputData);
 //typedef native_api::T_PDU_ERROR PDU_API_CALL_CONV FctPDUGetVersion( UNUM32 hMod, native_api::PDU_VERSION_DATA *pVersionData );
 //typedef native_api::T_PDU_ERROR PDU_API_CALL_CONV FctPDUGetStatus( UNUM32 hMod, UNUM32 hCLL, UNUM32 hCoP,
 //                                                                   native_api::T_PDU_STATUS *pStatusCode, UNUM32 *pTimestamp, UNUM32 *pExtraInfo);

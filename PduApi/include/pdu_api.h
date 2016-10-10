@@ -358,11 +358,11 @@ namespace native_api {
   /// 11.1.4.3.1 Item for Generic IOCTL data item
   ///////////////////////////////////////////////////////////////////////////////
 
-  //typedef struct
-  //{
-  //  T_PDU_IT  ItemType;
-  //  void    *pData;
-  //} PDU_DATA_ITEM;
+  struct PDU_DATA_ITEM
+  {
+    T_PDU_IT  ItemType;
+    void    *pData;
+  };
 
 
   ///////////////////////////////////////////////////////////////////////////////
@@ -802,41 +802,41 @@ namespace native_api {
   /// DoIP/6.4.5.1 Structures for IOCTL PDU_IOCTL_VEHICLE_ID_REQUEST
   ///////////////////////////////////////////////////////////////////////////////
 
-  //typedef struct
-  //{
-  //  UNUM32	IpVersion;		// the IP version to be used for DoIP communication: 4=IPv4, 6=IPv6 
-  //  UNUM8	*pAddress;		// IPv4: 4 Byte broadcast address, IPv6: 16 Byte multicast address 
-  //} PDU_IP_ADDR_INFO;
+  typedef struct
+  {
+    UNUM32	IpVersion;		// the IP version to be used for DoIP communication: 4=IPv4, 6=IPv6 
+    UNUM8	*pAddress;		// IPv4: 4 Byte broadcast address, IPv6: 16 Byte multicast address 
+  } PDU_IP_ADDR_INFO;
 
 
-  //typedef struct
-  //{
-  //  UNUM32	PreselectionMode;					// Preselection mode: 0=no preselection 
-  //                        // 1= select DoIP entities with given VIN 
+  typedef struct
+  {
+    UNUM32	PreselectionMode;					// Preselection mode: 0=no preselection 
+                          // 1= select DoIP entities with given VIN 
 
-  //  CHAR8*	PreselectionValue;					// pointer to NULL terminated ASCII string 
-  //                        // containing optional VIN (depending on 
-  //                        // PreselectionMode) 
+    CHAR8*	PreselectionValue;					// pointer to NULL terminated ASCII string 
+                          // containing optional VIN (depending on 
+                          // PreselectionMode) 
 
-  //  UNUM32	CombinationMode;					// Combination mode: 
-  //                        // 0= no combination 
-  //                        // 1= combine DoIP entities with common VIN 
-  //                        //    into MVCI of type 'DoIP-Vehicle'
-  //                        // 2= combine DoIP entities with common GroupID 
-  //                        //    into MVCI of type 'DoIP-Group' 
-  //                        // 3= combine all DoIP entities 
-  //                        //    into MVCI of type 'DoIP-Collection'
+    UNUM32	CombinationMode;					// Combination mode: 
+                          // 0= no combination 
+                          // 1= combine DoIP entities with common VIN 
+                          //    into MVCI of type 'DoIP-Vehicle'
+                          // 2= combine DoIP entities with common GroupID 
+                          //    into MVCI of type 'DoIP-Group' 
+                          // 3= combine all DoIP entities 
+                          //    into MVCI of type 'DoIP-Collection'
 
-  //  UNUM32	VehicleDiscoveryTime;				// Time-out to wait for vehicle identification 	responses. 
-  //                        // 0=return immediately, or time in milliseconds. 
+    UNUM32	VehicleDiscoveryTime;				// Time-out to wait for vehicle identification 	responses. 
+                          // 0=return immediately, or time in milliseconds. 
 
-  //  UNUM32	NumDestinationAddresses;			// Number of broadcast/multicast addresses in the destination 
-  //                        // address array. May be 0 for default 
+    UNUM32	NumDestinationAddresses;			// Number of broadcast/multicast addresses in the destination 
+                          // address array. May be 0 for default 
 
-  //  PDU_IP_ADDR_INFO *pDestinationAddresses;	// pointer to an array of IP addresses on which 
-  //                        // broadcast/multicast should be performed 
+    PDU_IP_ADDR_INFO *pDestinationAddresses;	// pointer to an array of IP addresses on which 
+                          // broadcast/multicast should be performed 
 
-  //} PDU_IO_VEHICLE_ID_REQUEST;
+  } PDU_IO_VEHICLE_ID_REQUEST;
 
   ///////////////////////////////////////////////////////////////////////////////
   /// DoIP/6.4.6.1 Structures for IOCTL PDU_IOCTL_SET_ETH_SWITCH_STATE
@@ -869,19 +869,19 @@ namespace native_api {
 
 
   // See PDU Specification for details
-  T_PDU_ERROR  PDUConstruct(CHAR8* pszOption, void* pAPITag);
+  //T_PDU_ERROR  PDUConstruct(CHAR8* pszOption, void* pAPITag);
   ///////////////////////////////////////////////////////////////////////////////
   // See PDU Specification for details
-  T_PDU_ERROR  PDUDestruct();
+  //T_PDU_ERROR  PDUDestruct();
   ///////////////////////////////////////////////////////////////////////////////
   // See PDU Specification for details
-  T_PDU_ERROR  PDUModuleConnect(UNUM32 hMod);
+  //T_PDU_ERROR  PDUModuleConnect(UNUM32 hMod);
   ///////////////////////////////////////////////////////////////////////////////
   // See PDU Specification for details
-  T_PDU_ERROR  PDUModuleDisconnect(UNUM32 hMod);
+  //T_PDU_ERROR  PDUModuleDisconnect(UNUM32 hMod);
   ///////////////////////////////////////////////////////////////////////////////
   // See PDU Specification for details
-  T_PDU_ERROR  PDUGetModuleIds(PDU_MODULE_ITEM** pModuleIdList);
+  //T_PDU_ERROR  PDUGetModuleIds(PDU_MODULE_ITEM** pModuleIdList);
   ///////////////////////////////////////////////////////////////////////////////
   // See PDU Specification for details
   //T_PDU_ERROR  PDUGetResourceIds(UNUM32 hMod, PDU_RSC_DATA* pResourceIdData, PDU_RSC_ID_ITEM** pResourceIdList);
@@ -893,10 +893,10 @@ namespace native_api {
   //T_PDU_ERROR  PDUCreateComLogicalLink(UNUM32 hMod, PDU_RSC_DATA* pRscData, UNUM32 uiResourceId, void* pCllTag, UNUM32* phCll, PDU_FLAG_DATA* pCllCreateFlag);
   ///////////////////////////////////////////////////////////////////////////////
   // See PDU Specification for details
-  T_PDU_ERROR  PDUDestroyComLogicalLink(UNUM32 hMod, UNUM32 hCll);
+  //T_PDU_ERROR  PDUDestroyComLogicalLink(UNUM32 hMod, UNUM32 hCll);
   ///////////////////////////////////////////////////////////////////////////////
   // See PDU Specification for details
-  T_PDU_ERROR  PDURegisterEventCallback(UNUM32 hMod, UNUM32 hCll, CALLBACKFNC fnCB);
+  //T_PDU_ERROR  PDURegisterEventCallback(UNUM32 hMod, UNUM32 hCll, CALLBACKFNC fnCB);
   ///////////////////////////////////////////////////////////////////////////////
   // See PDU Specification for details
   //T_PDU_ERROR  PDUGetComParam(UNUM32 hMod, UNUM32 hCll, UNUM32 uiParamId, PDU_PARAM_ITEM** pParamItem);
@@ -905,16 +905,16 @@ namespace native_api {
   //T_PDU_ERROR  PDUSetComParam(UNUM32 hMod, UNUM32 hCll, PDU_PARAM_ITEM* pParamItem);
   ////////////////////////////////////////////////////////////////////////////////
   // See PDU Specification for details
-  T_PDU_ERROR  PDUConnect(UNUM32 hMod, UNUM32 hCll);
+  ////T_PDU_ERROR  PDUConnect(UNUM32 hMod, UNUM32 hCll);
   ///////////////////////////////////////////////////////////////////////////////
   // See PDU Specification for details
-  T_PDU_ERROR  PDUDisconnect(UNUM32 hMod, UNUM32 hCll);
+  //T_PDU_ERROR  PDUDisconnect(UNUM32 hMod, UNUM32 hCll);
   ///////////////////////////////////////////////////////////////////////////////
   // See PDU Specification for details
   //T_PDU_ERROR  PDUStartComPrimitive(UNUM32 hMod, UNUM32 hCll, T_PDU_COPT uiCoPType, UNUM32 uiCoPDataSize, UNUM8* pCoPData, PDU_COP_CTRL_DATA* pCopCtrlData, void* pCoPTag, UNUM32* phCoP);
   ///////////////////////////////////////////////////////////////////////////////
   // See PDU Specification for details
-  T_PDU_ERROR  PDUCancelComPrimitive(UNUM32 hMod, UNUM32 hCll, UNUM32 hCoP);
+  //T_PDU_ERROR  PDUCancelComPrimitive(UNUM32 hMod, UNUM32 hCll, UNUM32 hCoP);
   ///////////////////////////////////////////////////////////////////////////////
   // See PDU Specification for details
   //T_PDU_ERROR  PDUGetEventItem(UNUM32 hMod, UNUM32 hCll, PDU_EVENT_ITEM** pEventItem);
@@ -938,10 +938,10 @@ namespace native_api {
   //T_PDU_ERROR  PDUIoCtl(UNUM32 hMod, UNUM32 hCll, UNUM32 uiIoCtlCommandId, PDU_DATA_ITEM* pInputData, PDU_DATA_ITEM** pOutputData);
   ///////////////////////////////////////////////////////////////////////////////
   // See PDU Specification for details
-  T_PDU_ERROR  PDUGetObjectId(UNUM32 uiPDUObjectType, CHAR8* pszShortName, UNUM32* pPDUObjectId);
+  //T_PDU_ERROR  PDUGetObjectId(UNUM32 uiPDUObjectType, CHAR8* pszShortName, UNUM32* pPDUObjectId);
   ///////////////////////////////////////////////////////////////////////////////
   // See PDU Specification for details
-  T_PDU_ERROR  PDUGetTimestamp(UNUM32 hMod, UNUM32* puiTimestamp);
+  //T_PDU_ERROR  PDUGetTimestamp(UNUM32 hMod, UNUM32* puiTimestamp);
   ///////////////////////////////////////////////////////////////////////////////
   // See PDU Specification for details
   //T_PDU_ERROR  PDUGetStatus(UNUM32 hMod, UNUM32 hCll, UNUM32 hCoP, T_PDU_STATUS* puiStatusCode, UNUM32* puiTimestamp, UNUM32* puiExtraInfo);
@@ -950,11 +950,11 @@ namespace native_api {
   ////T_PDU_ERROR  PDUGetConflictingResources(UNUM32 uiResourceId, PDU_MODULE_ITEM* pModuleList, PDU_RSC_CONFLICT_ITEM** pConflictList);
   ///////////////////////////////////////////////////////////////////////////////
   // See PDU Specification for details
-  T_PDU_ERROR  PDULockResource(UNUM32 hMod, UNUM32 hCll, UNUM32 uiLockMask);
+  ////T_PDU_ERROR  PDULockResource(UNUM32 hMod, UNUM32 hCll, UNUM32 uiLockMask);
   ///////////////////////////////////////////////////////////////////////////////
   // See PDU Specification for details
 
-  T_PDU_ERROR  PDUUnlockResource(UNUM32 hMod, UNUM32 hCll, UNUM32 uiLockMask);
+  ////T_PDU_ERROR  PDUUnlockResource(UNUM32 hMod, UNUM32 hCll, UNUM32 uiLockMask);
 
 }
 #endif // PDU_API_H

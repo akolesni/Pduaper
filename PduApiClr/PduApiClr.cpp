@@ -241,4 +241,16 @@ PduApiClr::E_PDU_ERROR PduApiClr::PduApi::PDUDisconnect(UInt32 hMod, UInt32 phCL
 
   return result;
 }
+
+PduApiClr::E_PDU_ERROR
+
+PduApiClr::PduApi::PDUIoCtl(
+  UInt32 hMod,
+  UInt32 phCLL,
+  UInt32 IoCtlCommandId,
+  PDU_DATA_ITEM ^ pInputData,
+  PDU_DATA_ITEM ^% pOutputData)
+{
+  return E_PDU_ERROR();
+}
 // ------------------------------------------------------------------------------------------------

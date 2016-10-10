@@ -4,6 +4,7 @@
 #include "PduApiClr/T_PDU_OBJT.h"
 #include "PduApiClr/PDU_RSC_DATA.h"
 #include "PduApiClr/PDU_FLAG_DATA.h"
+#include "PduApiClr/PDU_DATA_ITEM.h"
 
 class DPduApi;
 
@@ -34,6 +35,7 @@ namespace PduApiClr
       E_PDU_ERROR PDUDestroyComLogicalLink(UInt32 hMod, UInt32 phCLL);
       E_PDU_ERROR PDUConnect(UInt32 hMod, UInt32 phCLL);
       E_PDU_ERROR PDUDisconnect(UInt32 hMod, UInt32 phCLL);
+      E_PDU_ERROR PDUIoCtl(UInt32 hMod, UInt32 phCLL, UInt32 IoCtlCommandId, PDU_DATA_ITEM^ pInputData, PDU_DATA_ITEM^ %pOutputData);
     private:
       DPduApi* m_pPduApi = nullptr;
   };
