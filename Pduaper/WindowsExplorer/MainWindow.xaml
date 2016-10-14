@@ -1,11 +1,10 @@
 ﻿<UserControl x:Class="WindowsExplorer.MainWindow"
-                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
-                xmlns:example="clr-namespace:WindowsExplorer"
-               Height="350" Width="225"
-             Background="Aqua">
-    <Grid>
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+  xmlns:example="clr-namespace:WindowsExplorer"
+  Background="Aqua">
+  <Grid>
         <Grid.Resources>
             <Style x:Key="DriveItemStyle" TargetType="{x:Type telerik:RadTreeViewItem}">
                 <Setter Property="IsLoadOnDemandEnabled" Value="{Binding IsReady}"/>

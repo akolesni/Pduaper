@@ -40,7 +40,25 @@ namespace Pduaper.ViewModel
 
     private void PopulateMenuItems()
     {
+      // ContactsMenuItem
+      var contactsMenuItem = new ContactsMenuItem() { Content = "Contacts content", Header = "RDF", IconSource = "../Images/rdf_32x32.png", IconSourceSmall = "../Images/rdf_16x16.png" };
+
+      DfFacade dfFacade = new DfFacade();
+      Rdf rdf = dfFacade.GetRdf();
+
+
+      contactsMenuItem.ContactsList = new ObservableCollection<Person>();
+
+      foreach (var VARIABLE in rdf)
+      {
+        contactsMenuItem.ContactsList.Add(new Person() { Name = VARIABLE.SHORT_NAME, IconSource = "../Images/contact.png" });
+      }
+
+      this.MenuItems.Add(contactsMenuItem);
+
+      // MailMenuItem
       var mailMenuItem = new MailMenuItem() { Content = "Mails content", Header = "Mail", IconSource = "../Images/mailBig.png", IconSourceSmall = "../Images/mailSmall.png" };
+
       mailMenuItem.MailDirectories.Add(new MailDirectoryItem()
       {
         Header = "Personal Folders",
@@ -66,24 +84,9 @@ namespace Pduaper.ViewModel
       });
 
       this.MenuItems.Add(mailMenuItem);
-
+      // CalendarMenuItem
       var calendarMenuItem = new CalendarMenuItem() { Content = "Calendar content", Header = "Calendar", IconSource = "../Images/calendarBig.png", IconSourceSmall = "../Images/calendarSmall.png" };
       this.MenuItems.Add(calendarMenuItem);
-
-      var contactsMenuItem = new ContactsMenuItem() { Content = "Contacts content", Header = "Contacts", IconSource = "../Images/contactsBig.png", IconSourceSmall = "../Images/contactsSmall.png" };
-
-            DfFacade dfFacade = new DfFacade();
-            Rdf rdf = dfFacade.GetRdf();
-
-
-        contactsMenuItem.ContactsList = new ObservableCollection<Person>();
-
-        foreach (var VARIABLE in rdf)
-        {
-                contactsMenuItem.ContactsList.Add(new Person() { Name = VARIABLE.SHORT_NAME, IconSource = "../Images/contact.png" });
-        }
-
-      this.MenuItems.Add(contactsMenuItem);
     }
   }
 }
