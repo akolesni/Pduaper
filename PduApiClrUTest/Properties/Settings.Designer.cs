@@ -37,7 +37,7 @@ namespace PduApiClrUTest.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("XS_D_PDU_API_1_18_1_0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("XS_D_PDU_API_1_18_0_0")]
         public string ShortName {
             get {
                 return ((string)(this["ShortName"]));

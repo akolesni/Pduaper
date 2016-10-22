@@ -112,7 +112,7 @@ void PDULibraryManager::InitPointerMap()
   //InstantiateFunction<FctPDUGetEventItem>(m_PduApi, "PDUGetEventItem");
   InstantiateFunction<FctPDUDestroyItem>(m_PduApi, "PDUDestroyItem");
   InstantiateFunction<FctPDURegisterEventCallback>(m_PduApi, "PDURegisterEventCallback");
-  //InstantiateFunction<FctPDUGetObjectId>(m_PduApi, "PDUGetObjectId");
+  InstantiateFunction<FctPDUGetObjectId>(m_PduApi, "PDUGetObjectId");
   InstantiateFunction<FctPDUGetModuleIds>(m_PduApi, "PDUGetModuleIds");
   //InstantiateFunction<FctPDUGetResourceIds>(m_PduApi, "PDUGetResourceIds");
   //InstantiateFunction<FctPDUGetConflictingResources>(m_PduApi, "PDUGetConflictingResources");

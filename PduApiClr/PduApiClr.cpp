@@ -139,6 +139,7 @@ PduApiClr::PduApi::PDUGetObjectId(
 
   char* strShortname = (char*)(Runtime::InteropServices::Marshal::StringToHGlobalAnsi(pShortname)).ToPointer();
   UNUM32 unObjectId = 0xFFFFFFFE;
+
   result = PduApiClr::E_PDU_ERROR(this->m_pPduApi->PDUGetObjectId(native_api::T_PDU_OBJT(pduObjectType), strShortname, &unObjectId));
   pPduObjectId = unObjectId;
 
@@ -181,7 +182,7 @@ PduApiClr::PduApi::PDUCreateComLogicalLink(
   PDU_RSC_DATA^ pRscData,
   UInt32 resourceId,
   String ^ pCllTag,
-  UInt32 % phCLL,
+  [Out] UInt32 % phCLL,
   PDU_FLAG_DATA ^ pCllCreateFlag)
 {
   PduApiClr::E_PDU_ERROR result = PduApiClr::E_PDU_ERROR::PDU_ERR_FCT_FAILED;
@@ -189,29 +190,42 @@ PduApiClr::PduApi::PDUCreateComLogicalLink(
   char* strCllTag = (char*)(Runtime::InteropServices::Marshal::StringToHGlobalAnsi(pCllTag)).ToPointer();
 
   // ----------------------------------------------------------------------------------------------
-  native_api::PDU_RSC_DATA npRscData;
-  npRscData.BusTypeId  = pRscData->BusTypeId;
-  npRscData.ProtocolId = pRscData->ProtocolId;
-  npRscData.NumPinData = pRscData->pDLCPinData->Count;
-  npRscData.pDLCPinData = new native_api::PDU_PIN_DATA[npRscData.NumPinData];
-  for (size_t count = 0; count < npRscData.NumPinData; count++)
+  native_api::PDU_RSC_DATA* pNpRscData = nullptr;
+  native_api::PDU_PIN_DATA* pPinData = nullptr;
+  if (pRscData != nullptr)
   {
-    npRscData.pDLCPinData[count].DLCPinNumber = pRscData->pDLCPinData[count]->DLCPinNumber;
-    npRscData.pDLCPinData[count].DLCPinTypeId = pRscData->pDLCPinData[count]->DLCPinTypeId;
+    native_api::PDU_RSC_DATA npRscData;
+    npRscData.BusTypeId = pRscData->BusTypeId;
+    npRscData.ProtocolId = pRscData->ProtocolId;
+    npRscData.NumPinData = pRscData->pDLCPinData->Count;
+    pPinData = new native_api::PDU_PIN_DATA[npRscData.NumPinData];
+    npRscData.pDLCPinData = pPinData;
+    for (size_t count = 0; count < npRscData.NumPinData; count++)
+    {
+      npRscData.pDLCPinData[count].DLCPinNumber = pRscData->pDLCPinData[count]->DLCPinNumber;
+      npRscData.pDLCPinData[count].DLCPinTypeId = pRscData->pDLCPinData[count]->DLCPinTypeId;
+    }
+
+    pNpRscData = &npRscData;
   }
 
   // ----------------------------------------------------------------------------------------------
   native_api::PDU_FLAG_DATA pFlagData;
   pFlagData.NumFlagBytes = pCllCreateFlag->Count;
-  pFlagData.pFlagData = new UINT8[2]{ pCllCreateFlag[0], pCllCreateFlag[1]};
+  pFlagData.pFlagData = new UINT8[4]{ pCllCreateFlag[0], pCllCreateFlag[1], pCllCreateFlag[2], pCllCreateFlag[3] };
 
   // ----------------------------------------------------------------------------------------------
-  result = PduApiClr::E_PDU_ERROR(this->m_pPduApi->PDUCreateComLogicalLink(hMod, &npRscData, resourceId, strCllTag, &unhCLL, &pFlagData));
+  result = PduApiClr::E_PDU_ERROR(this->m_pPduApi->PDUCreateComLogicalLink(hMod, pNpRscData, resourceId, strCllTag, &unhCLL, &pFlagData));
 
   //-----------------------------------------------------------------------------------------------
   phCLL = unhCLL;
   Runtime::InteropServices::Marshal::FreeHGlobal(IntPtr((void*)strCllTag));
-  delete[] npRscData.pDLCPinData;
+
+  if (pRscData != nullptr)
+  {
+    delete[] pPinData;
+  }
+
   delete[] pFlagData.pFlagData;
 
   return result;

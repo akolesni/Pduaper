@@ -10,16 +10,16 @@ namespace PduApiClrUTest
   using RMC_DF;
 
   /// <summary>
-  /// Summary description for UTestModuleConnect
+  /// Summary description for UTestIoCtl
   /// </summary>
   [TestClass]
-  public class UTestModuleConnect
+  public class UTestIoCtl
   {
     private PduApi pduApi= null;
 
     private E_PDU_ERROR pduError= 0;
 
-    public UTestModuleConnect()
+    public UTestIoCtl()
     {
       //
       // TODO: Add constructor logic here
@@ -47,31 +47,32 @@ namespace PduApiClrUTest
     [TestMethod]
     public void TestModuleConnect()
     {
-      this.pduError = this.pduApi.PDUConstruct(@"LogFilename='.\logs\UTestModuleConnect_TestModuleConnect.log' LogLevel='Debug'", "tag01");
+      Assert.AreEqual(0, 1, "not implemented");
+      //this.pduError = this.pduApi.PDUConstruct(@"LogFilename='.\logs\UTestModuleConnect_TestModuleConnect.log' LogLevel='Debug'", "tag01");
 
-      Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUConstruct");
-      PDU_MODULE_ITEM module;
+      //Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUConstruct");
+      //PDU_MODULE_ITEM module;
 
-      this.pduError = this.pduApi.PDUGetModuleIds(out module);
-      Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR,"PDUGetModuleIds");
+      //this.pduError = this.pduApi.PDUGetModuleIds(out module);
+      //Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR,"PDUGetModuleIds");
 
-      Assert.AreEqual(module.Count,1, "1 modile");
+      //Assert.AreEqual(module.Count,1, "1 modile");
 
-      PDU_MODULE_DATA data = module[0];
+      //PDU_MODULE_DATA data = module[0];
 
-      uint hMod = data.hMod;
+      //uint hMod = data.hMod;
 
-      this.pduError = this.pduApi.PDUModuleConnect(hMod);
-      Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUModuleConnect");
+      //this.pduError = this.pduApi.PDUModuleConnect(hMod);
+      //Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUModuleConnect");
 
-      this.pduError = this.pduApi.PDUModuleDisconnect(hMod);
-      Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUModuleDisconnect");
+      //this.pduError = this.pduApi.PDUModuleDisconnect(hMod);
+      //Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUModuleDisconnect");
 
-      this.pduError = this.pduApi.PDUDestroyItem(module);
-      Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUDestroyItem");
+      //this.pduError = this.pduApi.PDUDestroyItem(module);
+      //Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUDestroyItem");
 
-      this.pduError = this.pduApi.PDUDestruct();
-      Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUDestruct");
+      //this.pduError = this.pduApi.PDUDestruct();
+      //Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUDestruct");
       //
     }
   }

@@ -6,7 +6,7 @@
       <Value Profile="(Default)">..\..\..\3sprty\dpduapi\dll\PDUAPI_I+ME_ACTIA_XS_1_18_0.dll</Value>
     </Setting>
     <Setting Name="ShortName" Type="System.String" Scope="User">
-      <Value Profile="(Default)">XS_D_PDU_API_1_18_1_0</Value>
+      <Value Profile="(Default)">XS_D_PDU_API_1_18_0_0</Value>
     </Setting>
   </Settings>
 </SettingsFile>

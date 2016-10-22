@@ -34,6 +34,7 @@ namespace PduApiClrUTest
     [TestCleanup]
     public void TestCleanup()
     {
+      //this.pduError = this.pduApi.PDUDestruct();
       this.pduError = this.pduApi.UnloadDll();
       Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR);
     }

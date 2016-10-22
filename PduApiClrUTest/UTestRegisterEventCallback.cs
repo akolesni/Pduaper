@@ -10,16 +10,16 @@ namespace PduApiClrUTest
   using RMC_DF;
 
   /// <summary>
-  /// Summary description for UTestIoCtl
+  /// Summary description for UTestRegisterEventCallback
   /// </summary>
   [TestClass]
-  public class UTestIoCtl
+  public class UTestRegisterEventCallback
   {
     private PduApi pduApi= null;
 
     private E_PDU_ERROR pduError= 0;
 
-    public UTestIoCtl()
+    public UTestRegisterEventCallback()
     {
       //
       // TODO: Add constructor logic here

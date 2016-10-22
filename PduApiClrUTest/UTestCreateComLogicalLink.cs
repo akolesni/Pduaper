@@ -8,6 +8,7 @@ namespace PduApiClrUTest
   using PduApiClrUTest.Properties;
 
   using RMC_DF;
+  using System;
 
   /// <summary>
   /// Summary description for UTestCreateComLogicalLink
@@ -45,35 +46,43 @@ namespace PduApiClrUTest
     }
 
     [TestMethod]
-    public void TestModuleConnect()
+    public void TestCreateUds()
     {
-      Assert.AreEqual(0, 1, "not implemented");
-      //this.pduError = this.pduApi.PDUConstruct(@"LogFilename='.\logs\UTestModuleConnect_TestModuleConnect.log' LogLevel='Debug'", "tag01");
+      //Assert.AreEqual(0, 1, "not implemented");
+      this.pduError = this.pduApi.PDUConstruct(@"LogFilename='.\logs\UTestCreateComLogicalLink_TestCreateUDS.log' LogLevel='Debug'", "tag01");
+      Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUConstruct");
+      PDU_MODULE_ITEM module;
+      this.pduError = this.pduApi.PDUGetModuleIds(out module);
+      Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUGetModuleIds");
+      Assert.AreEqual(module.Count, 1, "1 modile");
+      PDU_MODULE_DATA data = module[0];
+      uint hMod = data.hMod;
+      this.pduError = this.pduApi.PDUModuleConnect(hMod);
+      Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUModuleConnect");
+      // --------------------------------
+      //PDU_RSC_DATA pduRscData = new PDU_RSC_DATA();
+      PDU_FLAG_DATA pduFlagData = new PDU_FLAG_DATA(false, false);
+      uint hCll;
 
-      //Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUConstruct");
-      //PDU_MODULE_ITEM module;
+      UInt32 resId;
+      this.pduError = this.pduApi.PDUGetObjectId(T_PDU_OBJT.PDU_OBJT_RESOURCE, "ECOM_UDS_ON_CAN1_HS", out resId);
+      Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUGetObjectId");
 
-      //this.pduError = this.pduApi.PDUGetModuleIds(out module);
-      //Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR,"PDUGetModuleIds");
+      //uint resId = 0xFFFFFFFF;
 
-      //Assert.AreEqual(module.Count,1, "1 modile");
+      this.pduError = this.pduApi.PDUCreateComLogicalLink(hMod, null, resId, "cll", out hCll, pduFlagData);
+      Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUCreateComLogicalLink");
 
-      //PDU_MODULE_DATA data = module[0];
+      this.pduError = this.pduApi.PDUDestroyComLogicalLink(hMod, hCll);
+      Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUDestroyComLogicalLink");
 
-      //uint hMod = data.hMod;
-
-      //this.pduError = this.pduApi.PDUModuleConnect(hMod);
-      //Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUModuleConnect");
-
-      //this.pduError = this.pduApi.PDUModuleDisconnect(hMod);
-      //Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUModuleDisconnect");
-
-      //this.pduError = this.pduApi.PDUDestroyItem(module);
-      //Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUDestroyItem");
-
-      //this.pduError = this.pduApi.PDUDestruct();
+      // --------------------------------
+      this.pduError = this.pduApi.PDUModuleDisconnect(hMod);
+      Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUModuleDisconnect");
+      this.pduError = this.pduApi.PDUDestroyItem(module);
+      Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUDestroyItem");
+      this.pduError = this.pduApi.PDUDestruct();
       Assert.AreEqual(this.pduError, E_PDU_ERROR.PDU_STATUS_NOERROR, "PDUDestruct");
-      //
     }
   }
 }
